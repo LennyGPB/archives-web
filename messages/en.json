@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "title": "ORHA — The future leaves traces",
+    "description": "Every day, a connection opens. Discover an Archive from a future still unknown."
+  },
+  "nav": {
+    "homeAria": "ORHA — home",
+    "buyPacks": "Buy packs",
+    "buyPacksAria": "View transmission packs",
+    "comingSoon": "COMING SOON",
+    "languageAria": "Language",
+    "switchToEnglish": "Switch to English",
+    "switchToFrench": "Switch to French"
+  },
+  "stores": {
+    "groupAria": "Apps coming soon",
+    "soonOn": "SOON ON",
+    "appStore": "APP STORE",
+    "googlePlay": "GOOGLE PLAY",
+    "appStoreTitle": "App coming soon on the App Store",
+    "googlePlayTitle": "App coming soon on Google Play"
+  },
+  "hero": {
+    "titleAria": "The future leaves traces",
+    "titleLine1": "The future",
+    "titleLine2": "leaves",
+    "titleWord": "traces",
+    "bodyLine1": "Every day, a connection opens.",
+    "bodyLine2": "Discover an Archive from a future still unknown.",
+    "chapter": "CH.01",
+    "seasonMarquee": "SEASON 01 — EDEN"
+  },
+  "waitlist": {
+    "cta": "JOIN THE WAITLIST",
+    "teaser": "EARLY ACCESS",
+    "waitingOne": "{count} person already waiting",
+    "waitingMany": "{count} people already waiting",
+    "confirmedLabel": "WAITLIST SIGN-UP CONFIRMED",
+    "emailLabel": "YOUR CONNECTION ADDRESS",
+    "emailPlaceholder": "you@example.com",
+    "submit": "TRANSMIT",
+    "submitting": "TRANSMITTING…",
+    "created": "Your sign-up is confirmed.",
+    "duplicate": "This address is already on the list.",
+    "pendingOne": "{count} person waiting.",
+    "pendingMany": "{count} people waiting.",
+    "errors": {
+      "invalidEmail": "This email address looks invalid. Please check it and try again.",
+      "rateLimited": "Too many attempts. Please wait a moment before trying again.",
+      "unavailable": "The sign-up service is temporarily unavailable.",
+      "failed": "Sign-up failed. Please try again in a moment."
+    }
+  },
+  "about": {
+    "headingLine1": "One connection.",
+    "headingLine2Prefix": "One",
+    "headingWord": "Archive.",
+    "headingLine3": "Every day.",
+    "body": "ORHA detects connections to eras still unknown. Objects, species, technologies, anomalies… every discovery becomes **an Archive to add to your collection.**"
+  },
+  "metrics": {
+    "perDay": "TRANSMISSION PER DAY",
+    "perSeason": "ARCHIVES PER SEASON",
+    "tiers": "RARITY TIERS"
+  },
+  "eden": {
+    "season": "SEASON - 01",
+    "tagline": "Life reinvented.",
+    "body": "**30** Archives bear witness to this new world."
+  },
+  "rarities": {
+    "headingPrefix": "",
+    "headingWord": "Rarity",
+    "headingSuffix": "reveals itself.",
+    "bodyLine1": "Every Archive belongs to a **rarity tier**.",
+    "bodyLine2": "Its classification is **revealed only at the moment of its discovery.**",
+    "common": {
+      "tier": "COMMON RARITY",
+      "keyword": "Frequent",
+      "caption": "The ordinary of the future."
+    },
+    "prime": {
+      "tier": "PRIME RARITY",
+      "keyword": "Rare",
+      "caption": "What redefined its era."
+    },
+    "anomaly": {
+      "tier": "ANOMALY",
+      "keyword": "Exceptional",
+      "caption": "What escapes the rules."
+    },
+    "singularity": {
+      "tier": "SINGULARITY",
+      "keyword": "Unique",
+      "caption": "An unprecedented break."
+    }
+  },
+  "collection": {
+    "headingLine1": "Build your",
+    "headingWord": "collection.",
+    "bodyLine1": "Every transmission **enriches your collection.**",
+    "bodyLine2": "Complete the seasons, uncover the rarest and **leave your trace in the Registry.**",
+    "registry": "REGISTRY — SEASON 01",
+    "discoveries": "00 / 30 DISCOVERIES"
+  },
+  "packs": {
+    "headingPrefix": "Reserve your",
+    "headingWord": "transmissions.",
+    "body": "Every collector receives one free transmission per day. **Reserve additional transmissions now at the pre-launch** price, available in your account as soon as ORHA opens.",
+    "transmissions": "transmissions",
+    "buy": "BUY",
+    "processing": "REDIRECTING…",
+    "purchaseSuccess": "Payment confirmed. Your extra transmissions have been credited to your account.",
+    "purchaseCancelled": "Purchase cancelled — you haven't been charged.",
+    "purchaseError": "The payment couldn't be started. Please try again shortly.",
+    "mostChosen": "MOST POPULAR",
+    "perTransmission": "PER TRANSMISSION",
+    "save": "SAVE {percent}%",
+    "first": {
+      "name": "FIRST SIGNAL",
+      "count": "3",
+      "unitsValue": 3,
+      "price": "€1.99",
+      "priceValue": 1.99,
+      "detail": "3 additional openings available from launch."
+    },
+    "extended": {
+      "name": "EXTENDED SIGNAL",
+      "count": "7",
+      "unitsValue": 7,
+      "price": "€3.99",
+      "priceValue": 3.99,
+      "detail": "7 additional openings available from launch."
+    },
+    "deep": {
+      "name": "DEEP SIGNAL",
+      "count": "15",
+      "unitsValue": 15,
+      "price": "€7.99",
+      "priceValue": 7.99,
+      "detail": "15 additional openings available from launch."
+    },
+    "disclaimer": "These transmissions are added to your free daily opening. They do not increase your chances of obtaining any particular rarity.",
+    "deadline": "OFFER AVAILABLE UNTIL ORHA OPENS"
+  },
+  "finalCta": {
+    "headingLine1": "Be there",
+    "headingLine2": "when it",
+    "headingWord": "opens.",
+    "body": "Join ORHA's first collectors and be notified the moment EDEN opens.",
+    "earlyAccess": "EARLY ACCESS",
+    "status": "STANDBY",
+    "season": "SEASON 01 · EDEN",
+    "signature": "ORHA: TRANSMISSION ARCHIVE"
+  },
+  "modal": {
+    "closeAria": "Close the confirmation",
+    "titleCreated": "Your connection is established.",
+    "titleDuplicate": "You're already connected.",
+    "bodyCreated": "You're on the waitlist. **You'll receive an email** to join the ORHA app in **early access** as soon as your access is ready.",
+    "bodyDuplicate": "This address is already on our list. **You'll receive an email** as soon as your **early access** to the ORHA app is available.",
+    "continue": "CONTINUE EXPLORING"
+  },
+  "auth": {
+    "titleLogin": "Welcome back.",
+    "titleRegister": "Join the waitlist.",
+    "closeAria": "Close the sign-in window",
+    "tabLogin": "LOG IN",
+    "tabRegister": "REGISTER",
+    "emailLabel": "EMAIL",
+    "emailPlaceholder": "you@example.com",
+    "pseudoLabel": "USERNAME",
+    "pseudoPlaceholder": "your_callsign",
+    "passwordLabel": "PASSWORD",
+    "passwordPlaceholder": "••••••••",
+    "submitLogin": "LOG IN",
+    "submitRegister": "CREATE ACCOUNT",
+    "submitting": "CONNECTING…",
+    "orDivider": "OR",
+    "googleUnavailable": "Google sign-in is not configured.",
+    "connectedAs": "Connected as {pseudo}",
+    "logout": "Log out",
+    "registerSuccessTitle": "Your account is ready.",
+    "registerSuccessBody": "**Your account has been created** and you've been added to the early-access waitlist. **You'll receive an email** as soon as your access to ORHA is ready.",
+    "errors": {
+      "invalidCredentials": "Incorrect email or password.",
+      "accountUsesGoogle": "This account signs in with Google.",
+      "emailOrPseudoTaken": "This email or username is already taken.",
+      "invalidInput": "Please check your information and try again.",
+      "googleFailed": "Google sign-in failed. Please try again.",
+      "rateLimited": "Too many attempts. Please wait a moment before trying again.",
+      "unavailable": "The sign-in service is temporarily unavailable.",
+      "failed": "Something went wrong. Please try again."
+    }
+  }
+}

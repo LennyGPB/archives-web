@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root { --void:#08090a; --ink:#f4f3ef; --eden:#86a98d; }
+* { box-sizing:border-box; }
+html { background:var(--void); scroll-behavior:smooth; }
+body { margin:0; background:var(--void); color:var(--ink); font-family:var(--font-inter),sans-serif; }
+/* In a `@layer` so Tailwind's text-size utilities (higher layer) still win on buttons/inputs. */
+@layer base {
+  button,input { font:inherit; }
+  button { color:inherit; }
+}
+::selection { background:var(--eden); color:var(--void); }
+
+/* Hero image and atmospheric effects */
+.atmosphere { background-image:linear-gradient(90deg,rgba(8,9,10,.28),rgba(8,9,10,.08) 48%,rgba(8,9,10,.14)),url("/backweb.png"); background-position:68% center; background-size:cover; background-repeat:no-repeat; }
+.eden-parallax { transform:translate3d(0,-380px,0) scale(1.12); will-change:transform; }
+.aurora { position:absolute; display:block; border-radius:50%; filter:blur(90px); opacity:.62; animation:breathe 11s ease-in-out infinite alternate; }
+.aurora-a { right:-18vw; top:-26vh; width:74vw; height:82vh; background:rgba(134,169,141,.17); }
+.aurora-b { right:12vw; top:38vh; width:36vw; height:34vh; background:rgba(95,116,164,.08); animation-delay:-4s; }
+.signal-line { position:absolute; right:-8vw; width:68vw; height:1px; opacity:.34; transform:rotate(-23deg); transform-origin:right center; background:linear-gradient(90deg,transparent,rgba(244,243,239,.32),transparent); }
+.signal-line-a { top:28%; }
+.signal-line-b { top:66%; opacity:.16; }
+.vignette { background:radial-gradient(circle at 72% 44%,transparent 0,transparent 19%,rgba(8,9,10,.16) 44%,rgba(8,9,10,.86) 88%),linear-gradient(90deg,rgba(8,9,10,.5),transparent 50%); }
+.status-pulse { box-shadow:0 0 8px rgba(134,169,141,.8); animation:pulse 2.4s ease-in-out infinite; }
+
+/* Entrances */
+.hero-title-reveal { animation:hero-title-reveal 1.05s cubic-bezier(.16,1,.3,1) both; }
+.hero-title-reveal-first { animation-delay:.08s; }
+.hero-title-reveal-second { animation-delay:.24s; }
+.copy-reveal { animation:reveal 1s .2s cubic-bezier(.16,1,.3,1) both; }
+.cta-reveal { animation:reveal 1s .38s cubic-bezier(.16,1,.3,1) both; }
+
+/* Port of the native GlitchText layers */
+.title-traces-main { animation:app-glitch-main 1.8s steps(1,end) infinite; }
+.glitch-ghost { opacity:0; }
+.glitch-ghost-eden { animation:app-glitch-eden 1.8s steps(1,end) infinite; }
+.glitch-ghost-white { animation:app-glitch-white 1.8s steps(1,end) infinite; }
+.glitch-scanline { opacity:0; animation:app-glitch-line 1.8s steps(1,end) infinite; }
+
+/* Waitlist signal control */
+.signal-cta { backdrop-filter:blur(5px); box-shadow:0 12px 34px rgba(0,0,0,.24); }
+.signal-cta::before { position:absolute; inset:0; content:""; background:linear-gradient(105deg,transparent 0 43%,rgba(134,169,141,.16) 48%,rgba(244,243,239,.1) 50%,transparent 55%); transform:translateX(-115%); animation:cta-scan 4.8s cubic-bezier(.16,1,.3,1) infinite; pointer-events:none; }
+.signal-cta::after { position:absolute; right:-25%; bottom:0; left:-25%; height:1px; content:""; background:linear-gradient(90deg,transparent,var(--eden),transparent); opacity:.55; transform:translateX(-55%); animation:cta-rail 3.6s ease-in-out infinite; pointer-events:none; }
+.signal-cta-label { position:relative; display:block; }
+.signal-cta-label::before,.signal-cta-label::after { position:absolute; inset:0; content:attr(data-text); opacity:0; pointer-events:none; }
+.signal-cta-label::before { color:var(--eden); clip-path:inset(5% 0 56%); animation:cta-glitch-a 4s steps(1,end) infinite; }
+.signal-cta-label::after { color:var(--ink); clip-path:inset(58% 0 8%); animation:cta-glitch-b 4s steps(1,end) infinite; }
+.signal-cta:hover .signal-cta-label::before,.signal-cta:focus-visible .signal-cta-label::before { animation-duration:1.25s; }
+.signal-cta:hover .signal-cta-label::after,.signal-cta:focus-visible .signal-cta-label::after { animation-duration:1.25s; }
+.season-marquee-track { animation:season-marquee 28s linear infinite; will-change:transform; }
+.collection-marquee-track { animation-duration:110s; }
+.connection-wire-pulse { left:50%; top:-2px; transform:translateX(-50%); animation:wire-signal-mobile 1.8s ease-in-out infinite; }
+.modal-backdrop { animation:modal-backdrop-in .28s cubic-bezier(.16,1,.3,1) both; }
+.modal-panel { animation:modal-panel-in .62s cubic-bezier(.16,1,.3,1) both; }
+.modal-panel::after { position:absolute; z-index:20; right:0; left:0; top:0; height:2px; content:""; pointer-events:none; background:linear-gradient(90deg,transparent,rgba(220,233,223,.9),rgba(134,169,141,.75),transparent); animation:modal-signal-scan .62s steps(1,end) both; }
+.modal-title { position:relative; }
+.modal-title::after { position:absolute; inset:0; content:attr(data-text); color:#9bc2a3; opacity:0; pointer-events:none; clip-path:inset(8% 0 52%); animation:modal-title-glitch .62s steps(1,end) both; }
+
+/* Auth modal — form controls share the waitlist's connection-line input style */
+.auth-field { width:100%; border:0; border-bottom:1px solid rgba(134,169,141,.55); background:transparent; padding:.7rem 0; color:#f4f3ef; caret-color:var(--eden); outline:none; }
+.auth-field::placeholder { color:#969792; }
+.auth-field:focus-visible { outline:1px solid var(--eden); outline-offset:4px; }
+.auth-tab { position:relative; }
+.auth-tab[data-active="true"]::after { position:absolute; right:0; bottom:-1px; left:0; height:1px; content:""; background:var(--eden); box-shadow:0 0 8px rgba(134,169,141,.8); }
+
+@keyframes breathe { to { opacity:.82; transform:translate3d(-2vw,1.5vh,0) scale(1.06); } }
+@keyframes pulse { 50% { opacity:.35; box-shadow:0 0 3px rgba(134,169,141,.45); } }
+@keyframes hero-title-reveal { from { clip-path:inset(0 0 100% 0); filter:blur(8px); opacity:0; } to { clip-path:inset(0); filter:blur(0); opacity:1; } }
+@keyframes reveal { from { clip-path:inset(0 100% 0 0); opacity:0; } to { clip-path:inset(0); opacity:1; } }
+
+/* The burst lasts ~550ms, making the app effect readable on a large web title. */
+@keyframes app-glitch-main {
+  0%,32%,72%,100% { transform:translateX(0) skewX(0); filter:none; }
+  38% { transform:translateX(9px) skewX(3deg); filter:blur(.4px); }
+  46% { transform:translateX(-8px) skewX(-2.5deg); }
+  54% { transform:translateX(6px) skewX(1.8deg); }
+  64% { transform:translateX(-3px) skewX(-1deg); }
+}
+@keyframes app-glitch-eden {
+  0%,32%,72%,100% { opacity:0; transform:translateX(0) scaleX(1); clip-path:inset(0); }
+  38% { opacity:1; transform:translateX(-18px) scaleX(1.06); clip-path:inset(3% 0 54%); }
+  46% { opacity:.82; transform:translateX(15px) scaleX(1.09); clip-path:inset(39% 0 29%); }
+  54% { opacity:.92; transform:translateX(-11px); clip-path:inset(65% 0 6%); }
+  64% { opacity:.56; transform:translateX(7px); clip-path:inset(19% 0 51%); }
+}
+@keyframes app-glitch-white {
+  0%,34%,72%,100% { opacity:0; transform:translateX(0); clip-path:inset(0); }
+  40% { opacity:.9; transform:translateX(17px); clip-path:inset(56% 0 10%); }
+  48% { opacity:.72; transform:translateX(-14px) skewX(4deg); clip-path:inset(9% 0 61%); }
+  56% { opacity:.82; transform:translateX(10px); clip-path:inset(35% 0 32%); }
+  66% { opacity:.48; transform:translateX(-6px); clip-path:inset(69% 0 4%); }
+}
+@keyframes app-glitch-line {
+  0%,32%,72%,100% { opacity:0; transform:translateX(0) scaleX(1); }
+  38% { opacity:1; transform:translateX(-20px) scaleX(1.18); }
+  46% { opacity:.9; transform:translateX(17px) scaleX(.9); }
+  54% { opacity:1; transform:translateX(-12px) scaleX(1.12); }
+  64% { opacity:.62; transform:translateX(7px) scaleX(1.05); }
+}
+@keyframes cta-scan { 0%,66% { transform:translateX(-115%); opacity:0; } 72% { opacity:1; } 88%,100% { transform:translateX(115%); opacity:0; } }
+@keyframes cta-rail { 0%,100% { transform:translateX(-55%); opacity:.25; } 50% { transform:translateX(55%); opacity:.8; } }
+@keyframes cta-glitch-a { 0%,78%,88%,100% { opacity:0; transform:translate(0); } 80% { opacity:.9; transform:translate(7px,-1px); } 83% { opacity:.45; transform:translate(-5px,1px) scaleX(1.025); } 86% { opacity:.7; transform:translate(3px); } }
+@keyframes cta-glitch-b { 0%,79%,89%,100% { opacity:0; transform:translate(0); } 81% { opacity:.7; transform:translate(-7px,1px); } 84% { opacity:.35; transform:translate(5px,-1px); } 87% { opacity:.55; transform:translate(-2px); } }
+@keyframes season-marquee { to { transform:translateX(-50%); } }
+@keyframes wire-signal-mobile { 0%,100% { top:-4px; opacity:0; } 20%,80% { opacity:1; } 100% { top:100%; } }
+@keyframes modal-backdrop-in { from { opacity:0; backdrop-filter:blur(0); } }
+@keyframes modal-panel-in {
+  0% { opacity:0; transform:scale(.78); filter:blur(12px); }
+  48% { opacity:1; transform:scale(1.018) translate(1px,-1px); filter:blur(0); }
+  58% { transform:scale(.992) translate(-3px,1px) skewX(-.6deg); }
+  67% { transform:scale(1.006) translate(2px,0); }
+  78%,100% { opacity:1; transform:scale(1) translate(0) skewX(0); filter:blur(0); }
+}
+@keyframes modal-signal-scan {
+  0%,28% { opacity:0; transform:translateY(-2px); }
+  35% { opacity:1; transform:translateY(16px); }
+  43% { opacity:.75; transform:translateY(62px); }
+  52% { opacity:.45; transform:translateY(132px); }
+  60%,100% { opacity:0; transform:translateY(210px); }
+}
+@keyframes modal-title-glitch {
+  0%,44%,72%,100% { opacity:0; transform:translateX(0); }
+  48% { opacity:.85; transform:translateX(-8px); clip-path:inset(8% 0 52%); }
+  54% { opacity:.6; transform:translateX(7px); clip-path:inset(52% 0 12%); }
+  61% { opacity:.4; transform:translateX(-3px); clip-path:inset(31% 0 40%); }
+}
+@media (min-width:640px) {
+  .atmosphere { background-position:center; }
+  .connection-wire-pulse { top:50%; left:-4px; transform:translateY(-50%); animation-name:wire-signal-desktop; }
+  @keyframes wire-signal-desktop { 0%,100% { left:-4px; opacity:0; } 20%,80% { opacity:1; } 100% { left:100%; } }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion:reduce) {
+  .aurora,.status-pulse,.copy-reveal,.cta-reveal,.modal-backdrop,.modal-panel,.modal-panel::after,.modal-title::after { animation:none!important; }
 }

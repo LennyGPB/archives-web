@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "title": "ORHA — Le futur laisse des traces",
+    "description": "Chaque jour, une connexion s’ouvre. Découvrez une Archive provenant d’un futur encore inconnu."
+  },
+  "nav": {
+    "homeAria": "ORHA — accueil",
+    "buyPacks": "Acheter des packs",
+    "buyPacksAria": "Voir les packs de transmissions",
+    "comingSoon": "BIENTÔT DISPONIBLE",
+    "languageAria": "Langue",
+    "switchToEnglish": "Passer en anglais",
+    "switchToFrench": "Passer en français"
+  },
+  "stores": {
+    "groupAria": "Applications bientôt disponibles",
+    "soonOn": "BIENTÔT SUR",
+    "appStore": "APP STORE",
+    "googlePlay": "GOOGLE PLAY",
+    "appStoreTitle": "Application bientôt disponible sur l’App Store",
+    "googlePlayTitle": "Application bientôt disponible sur Google Play"
+  },
+  "hero": {
+    "titleAria": "Le futur laisse des traces",
+    "titleLine1": "Le futur",
+    "titleLine2": "laisse des",
+    "titleWord": "traces",
+    "bodyLine1": "Chaque jour, une connexion s’ouvre.",
+    "bodyLine2": "Découvrez une Archive provenant d’un futur encore inconnu.",
+    "chapter": "CH.01",
+    "seasonMarquee": "SEASON 01 — EDEN"
+  },
+  "waitlist": {
+    "cta": "REJOINDRE LA LISTE D’ATTENTE",
+    "teaser": "ACCÈS EN AVANT-PREMIÈRE",
+    "waitingOne": "Déjà {count} utilisateur en attente",
+    "waitingMany": "Déjà {count} utilisateurs en attente",
+    "confirmedLabel": "INSCRIPTION DANS LA FILE D’ATTENTE CONFIRMÉE",
+    "emailLabel": "VOTRE ADRESSE DE CONNEXION",
+    "emailPlaceholder": "vous@exemple.fr",
+    "submit": "TRANSMETTRE",
+    "submitting": "TRANSMISSION…",
+    "created": "Votre inscription est confirmée.",
+    "duplicate": "Cette adresse est déjà inscrite.",
+    "pendingOne": "{count} personne en attente.",
+    "pendingMany": "{count} personnes en attente.",
+    "errors": {
+      "invalidEmail": "Cette adresse e-mail semble invalide. Vérifiez-la et réessayez.",
+      "rateLimited": "Trop de tentatives. Patientez un instant avant de réessayer.",
+      "unavailable": "Le service d’inscription est temporairement indisponible.",
+      "failed": "L’inscription a échoué. Réessayez dans un instant."
+    }
+  },
+  "about": {
+    "headingLine1": "Une connexion.",
+    "headingLine2Prefix": "Une",
+    "headingWord": "Archive.",
+    "headingLine3": "Chaque jour.",
+    "body": "ORHA détecte des connexions vers des époques encore inconnues. Objets, espèces, technologies, anomalies… chaque découverte devient **une Archive à ajouter à votre collection.**"
+  },
+  "metrics": {
+    "perDay": "TRANSMISSION PAR JOUR",
+    "perSeason": "ARCHIVES PAR SAISON",
+    "tiers": "NIVEAUX DE RARETÉ"
+  },
+  "eden": {
+    "season": "SAISON - 01",
+    "tagline": "Le vivant réinventé.",
+    "body": "**30** Archives témoignent de ce nouveau monde."
+  },
+  "rarities": {
+    "headingPrefix": "La",
+    "headingWord": "rareté",
+    "headingSuffix": "se révèle.",
+    "bodyLine1": "Chaque Archive appartient à un **niveau de rareté**.",
+    "bodyLine2": "Sa classification n’est **révélée qu’au moment de sa découverte.**",
+    "common": {
+      "tier": "RARETÉ COMMUNE",
+      "keyword": "Fréquente",
+      "caption": "L’ordinaire du futur."
+    },
+    "prime": {
+      "tier": "RARETÉ PRIME",
+      "keyword": "Rare",
+      "caption": "Ce qui a redéfini son époque."
+    },
+    "anomaly": {
+      "tier": "ANOMALY",
+      "keyword": "Exceptionnelle",
+      "caption": "Ce qui échappe aux règles."
+    },
+    "singularity": {
+      "tier": "SINGULARITY",
+      "keyword": "Unique",
+      "caption": "Une rupture sans précédent."
+    }
+  },
+  "collection": {
+    "headingLine1": "Construisez votre",
+    "headingWord": "collection.",
+    "bodyLine1": "Chaque transmission **enrichit votre collection.**",
+    "bodyLine2": "Complétez les saisons, découvrez les plus rares et **laissez votre trace dans le Registre.**",
+    "registry": "REGISTRE — SAISON 01",
+    "discoveries": "00 / 30 DÉCOUVERTES"
+  },
+  "packs": {
+    "headingPrefix": "Réservez vos",
+    "headingWord": "transmissions.",
+    "body": "Chaque collectionneur dispose d’une transmission gratuite par jour. **Réservez dès maintenant des transmissions supplémentaires à tarif pré-lancement**, disponibles sur votre compte dès l’ouverture d’ORHA.",
+    "transmissions": "transmissions",
+    "buy": "ACHETER",
+    "processing": "REDIRECTION…",
+    "purchaseSuccess": "Paiement confirmé. Vos transmissions supplémentaires sont créditées sur votre compte.",
+    "purchaseCancelled": "Achat annulé — aucune somme n'a été prélevée.",
+    "purchaseError": "Le paiement n'a pas pu être initié. Réessayez dans un instant.",
+    "mostChosen": "LE PLUS CHOISI",
+    "perTransmission": "PAR TRANSMISSION",
+    "save": "ÉCONOMISEZ {percent}%",
+    "first": {
+      "name": "FIRST SIGNAL",
+      "count": "3",
+      "unitsValue": 3,
+      "price": "1,99 €",
+      "priceValue": 1.99,
+      "detail": "3 ouvertures supplémentaires dès le lancement."
+    },
+    "extended": {
+      "name": "EXTENDED SIGNAL",
+      "count": "7",
+      "unitsValue": 7,
+      "price": "3,99 €",
+      "priceValue": 3.99,
+      "detail": "7 ouvertures supplémentaires dès le lancement."
+    },
+    "deep": {
+      "name": "DEEP SIGNAL",
+      "count": "15",
+      "unitsValue": 15,
+      "price": "7,99 €",
+      "priceValue": 7.99,
+      "detail": "15 ouvertures supplémentaires dès le lancement."
+    },
+    "disclaimer": "Ces transmissions s’ajoutent à votre ouverture quotidienne gratuite. Elles n’augmentent pas vos chances d’obtenir une rareté particulière.",
+    "deadline": "OFFRE DISPONIBLE JUSQU’À L’OUVERTURE D’ORHA"
+  },
+  "finalCta": {
+    "headingLine1": "Soyez là",
+    "headingLine2": "quand elle",
+    "headingWord": "s’ouvrira.",
+    "body": "Rejoignez les premiers collectionneurs de ORHA et soyez averti dès l’ouverture d’EDEN.",
+    "earlyAccess": "ACCÈS ANTICIPÉ",
+    "status": "EN ATTENTE",
+    "season": "SAISON 01 · EDEN",
+    "signature": "ORHA: TRANSMISSION ARCHIVE"
+  },
+  "modal": {
+    "closeAria": "Fermer la confirmation",
+    "titleCreated": "Votre connexion est établie.",
+    "titleDuplicate": "Vous êtes déjà connecté·e.",
+    "bodyCreated": "Vous êtes bien inscrit·e sur la liste d’attente. **Vous recevrez un e-mail** pour rejoindre l’application ORHA en **avant-première** dès que votre accès sera prêt.",
+    "bodyDuplicate": "Cette adresse figure déjà sur notre liste. **Vous recevrez un e-mail** dès que votre accès en **avant-première** à l’application ORHA sera disponible.",
+    "continue": "CONTINUER L’EXPLORATION"
+  },
+  "auth": {
+    "titleLogin": "Bon retour.",
+    "titleRegister": "Rejoignez la liste d’attente.",
+    "closeAria": "Fermer la fenêtre de connexion",
+    "tabLogin": "SE CONNECTER",
+    "tabRegister": "S’INSCRIRE",
+    "emailLabel": "E-MAIL",
+    "emailPlaceholder": "vous@exemple.fr",
+    "pseudoLabel": "PSEUDO",
+    "pseudoPlaceholder": "votre_pseudo",
+    "passwordLabel": "MOT DE PASSE",
+    "passwordPlaceholder": "••••••••",
+    "submitLogin": "SE CONNECTER",
+    "submitRegister": "CRÉER LE COMPTE",
+    "submitting": "CONNEXION…",
+    "orDivider": "OU",
+    "googleUnavailable": "La connexion Google n’est pas configurée.",
+    "connectedAs": "Connecté·e en tant que {pseudo}",
+    "logout": "Se déconnecter",
+    "registerSuccessTitle": "Votre compte est prêt.",
+    "registerSuccessBody": "**Votre compte a bien été créé** et vous avez été ajouté·e à la liste d’attente en avant-première. **Vous recevrez un e-mail** dès que votre accès à ORHA sera prêt.",
+    "errors": {
+      "invalidCredentials": "E-mail ou mot de passe incorrect.",
+      "accountUsesGoogle": "Ce compte se connecte avec Google.",
+      "emailOrPseudoTaken": "Cet e-mail ou ce pseudo est déjà utilisé.",
+      "invalidInput": "Vérifiez vos informations et réessayez.",
+      "googleFailed": "La connexion Google a échoué. Réessayez.",
+      "rateLimited": "Trop de tentatives. Patientez un instant avant de réessayer.",
+      "unavailable": "Le service de connexion est temporairement indisponible.",
+      "failed": "Une erreur est survenue. Réessayez."
+    }
+  }
+}

@@ -16,6 +16,22 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Liste d’attente
+
+Les inscriptions sont stockées dans la base PostgreSQL de `ora-api`. Le web relaie les requêtes vers l’API et ne possède plus de client ni de schéma Prisma.
+
+```bash
+copy .env.example .env
+# Démarrer ora-api sur l’URL configurée dans ORA_API_URL
+npm run dev
+```
+
+- `GET /api/waitlist` renvoie le nombre d’inscrits.
+- `POST /api/waitlist` accepte `{ "email": "vous@exemple.fr" }`.
+- `ORA_API_URL` indique l’URL serveur de `ora-api` (`https://archives-api-production.up.railway.app` en production).
+
+Les adresses sont normalisées en minuscules par `ora-api` et protégées par une contrainte d’unicité PostgreSQL.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
