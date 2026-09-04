@@ -110,7 +110,8 @@
     "transmissions": "transmissions",
     "buy": "BUY",
     "processing": "REDIRECTING…",
-    "purchaseSuccess": "Payment confirmed. Your extra transmissions have been credited to your account.",
+    "purchaseSuccessTitle": "Transmissions received.",
+    "purchaseSuccessBody": "Payment confirmed. **{count} extra transmissions** have been credited to your account.",
     "purchaseCancelled": "Purchase cancelled — you haven't been charged.",
     "purchaseError": "The payment couldn't be started. Please try again shortly.",
     "mostChosen": "MOST POPULAR",
@@ -180,6 +181,7 @@
     "googleUnavailable": "Google sign-in is not configured.",
     "connectedAs": "Connected as {pseudo}",
     "logout": "Log out",
+    "transmissionCreditsAria": "{count} extra transmissions available",
     "registerSuccessTitle": "Your account is ready.",
     "registerSuccessBody": "**Your account has been created** and you've been added to the early-access waitlist. **You'll receive an email** as soon as your access to ORHA is ready.",
     "errors": {

@@ -7,6 +7,7 @@ export type AuthUser = {
   id: string;
   pseudo: string;
   avatarUrl: string | null;
+  transmissionCredits: number;
 };
 
 /** Keys of `auth.errors` in the dictionaries. */

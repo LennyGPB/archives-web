@@ -110,7 +110,8 @@
     "transmissions": "transmissions",
     "buy": "ACHETER",
     "processing": "REDIRECTION…",
-    "purchaseSuccess": "Paiement confirmé. Vos transmissions supplémentaires sont créditées sur votre compte.",
+    "purchaseSuccessTitle": "Transmissions reçues.",
+    "purchaseSuccessBody": "Paiement confirmé. **{count} transmissions supplémentaires** ont été créditées sur votre compte.",
     "purchaseCancelled": "Achat annulé — aucune somme n'a été prélevée.",
     "purchaseError": "Le paiement n'a pas pu être initié. Réessayez dans un instant.",
     "mostChosen": "LE PLUS CHOISI",
@@ -180,6 +181,7 @@
     "googleUnavailable": "La connexion Google n’est pas configurée.",
     "connectedAs": "Connecté·e en tant que {pseudo}",
     "logout": "Se déconnecter",
+    "transmissionCreditsAria": "{count} transmissions supplémentaires disponibles",
     "registerSuccessTitle": "Votre compte est prêt.",
     "registerSuccessBody": "**Votre compte a bien été créé** et vous avez été ajouté·e à la liste d’attente en avant-première. **Vous recevrez un e-mail** dès que votre accès à ORHA sera prêt.",
     "errors": {

@@ -7,6 +7,7 @@ import FloatingWaitlistButton from "@/components/FloatingWaitlistButton";
 import GlitchWord from "@/components/GlitchWord";
 import { useI18n } from "@/components/I18nProvider";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import PurchaseSuccessModal from "@/components/PurchaseSuccessModal";
 import RichText from "@/components/RichText";
 import UserMenu from "@/components/UserMenu";
 import WaitlistCta from "@/components/WaitlistCta";
@@ -18,27 +19,39 @@ type PackId = (typeof PACK_IDS)[number];
 
 export default function Home() {
   const { dict, lang } = useI18n();
-  const { isAuthenticated, user, openAuthModal, authFetch } = useAuth();
+  const { isAuthenticated, user, openAuthModal, authFetch, refreshUser } = useAuth();
   const [metricsRevealed, setMetricsRevealed] = useState(false);
   const [raritiesRevealed, setRaritiesRevealed] = useState(false);
   const [pendingPackId, setPendingPackId] = useState<PackId | null>(null);
-  const [purchaseNotice, setPurchaseNotice] = useState<"success" | "cancelled" | "error" | null>(null);
+  const [purchaseNotice, setPurchaseNotice] = useState<"cancelled" | "error" | null>(null);
+  const [purchaseSuccessCredits, setPurchaseSuccessCredits] = useState<number | null>(null);
   const edenSectionRef = useRef<HTMLElement>(null);
   const edenBackdropRef = useRef<HTMLDivElement>(null);
   const metricsRef = useRef<HTMLDListElement>(null);
   const raritiesRef = useRef<HTMLDivElement>(null);
 
   // Stripe redirects back here with `?purchase=success|cancelled` — surface a
-  // notice once, then strip the param so a refresh doesn't repeat it.
+  // notice once, then strip the params so a refresh doesn't repeat it. Reading
+  // location.search can only happen client-side after mount (it isn't stable
+  // across SSR/hydration), so this can't be a lazy initial-state computation.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const purchase = params.get("purchase");
     if (purchase !== "success" && purchase !== "cancelled") return;
 
-    setPurchaseNotice(purchase);
+    if (purchase === "success") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPurchaseSuccessCredits(Number(params.get("credits")) || 0);
+      void refreshUser();
+    } else {
+      setPurchaseNotice("cancelled");
+    }
+
     params.delete("purchase");
+    params.delete("credits");
     const query = params.toString();
     window.history.replaceState({}, "", `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function handleBuy(packId: PackId) {
@@ -406,16 +419,8 @@ export default function Home() {
           </div>
 
           {purchaseNotice && (
-            <p
-              className={`m-0 mt-10 border px-4 py-3 font-[family-name:var(--font-geist-mono)] text-[11px] tracking-wide ${
-                purchaseNotice === "success"
-                  ? "border-[#86a98d]/50 bg-[#86a98d]/10 text-[#dce9df]"
-                  : "border-white/20 bg-white/5 text-white/60"
-              }`}
-            >
-              {purchaseNotice === "success" && dict.packs.purchaseSuccess}
-              {purchaseNotice === "cancelled" && dict.packs.purchaseCancelled}
-              {purchaseNotice === "error" && dict.packs.purchaseError}
+            <p className="m-0 mt-10 border border-white/20 bg-white/5 px-4 py-3 font-[family-name:var(--font-geist-mono)] text-[11px] tracking-wide text-white/60">
+              {purchaseNotice === "cancelled" ? dict.packs.purchaseCancelled : dict.packs.purchaseError}
             </p>
           )}
 
@@ -537,6 +542,7 @@ export default function Home() {
       </section>
 
       <FloatingWaitlistButton />
+      <PurchaseSuccessModal credits={purchaseSuccessCredits} onClose={() => setPurchaseSuccessCredits(null)} />
     </main>
   );
 }

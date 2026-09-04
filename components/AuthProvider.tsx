@@ -27,6 +27,8 @@ type AuthContextValue = {
    * `isAuthenticated` first.
    */
   authFetch: (input: string, init?: RequestInit) => Promise<Response>;
+  /** Re-fetches the current user (e.g. after a purchase credits their account). No-op if signed out. */
+  refreshUser: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -118,6 +120,12 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     [tokens, logout],
   );
 
+  const refreshUser = useCallback(async () => {
+    if (!tokens) return;
+    const profile = await fetchCurrentUser(tokens.accessToken);
+    if (profile) setUser(profile);
+  }, [tokens]);
+
   const value = useMemo<AuthContextValue>(
     () => ({
       user,
@@ -127,8 +135,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       closeAuthModal: () => setIsModalOpen(false),
       logout,
       authFetch,
+      refreshUser,
     }),
-    [user, isReady, logout, authFetch],
+    [user, isReady, logout, authFetch, refreshUser],
   );
 
   return (
