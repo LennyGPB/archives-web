@@ -22,13 +22,31 @@ export default function Home() {
   const { isAuthenticated, user, openAuthModal, authFetch, refreshUser } = useAuth();
   const [metricsRevealed, setMetricsRevealed] = useState(false);
   const [raritiesRevealed, setRaritiesRevealed] = useState(false);
+  const [packsRevealed, setPacksRevealed] = useState(false);
   const [pendingPackId, setPendingPackId] = useState<PackId | null>(null);
   const [purchaseNotice, setPurchaseNotice] = useState<"cancelled" | "error" | null>(null);
   const [purchaseSuccessCredits, setPurchaseSuccessCredits] = useState<number | null>(null);
-  const edenSectionRef = useRef<HTMLElement>(null);
-  const edenBackdropRef = useRef<HTMLDivElement>(null);
   const metricsRef = useRef<HTMLDListElement>(null);
   const raritiesRef = useRef<HTMLDivElement>(null);
+  const packsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const packs = packsRef.current;
+    if (!packs) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPacksRevealed(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "-15% 0px -15% 0px", threshold: 0 },
+    );
+
+    observer.observe(packs);
+    return () => observer.disconnect();
+  }, []);
 
   // Stripe redirects back here with `?purchase=success|cancelled` — surface a
   // notice once, then strip the params so a refresh doesn't repeat it. Reading
@@ -76,34 +94,6 @@ export default function Home() {
       setPendingPackId(null);
     }
   }
-
-  useEffect(() => {
-    const section = edenSectionRef.current;
-    const backdrop = edenBackdropRef.current;
-    if (!section || !backdrop) return;
-
-    let frame = 0;
-    const updateParallax = () => {
-      frame = 0;
-      const rect = section.getBoundingClientRect();
-      const travel = window.innerHeight + rect.height;
-      const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / travel));
-      const offset = (progress - 0.5) * 760;
-      backdrop.style.transform = `translate3d(0, ${offset}px, 0) scale(1.12)`;
-    };
-    const requestUpdate = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateParallax);
-    };
-
-    updateParallax();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-    return () => {
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, []);
 
   useEffect(() => {
     const rarities = raritiesRef.current;
@@ -178,9 +168,9 @@ export default function Home() {
 
       <section className="relative flex min-h-svh items-start px-6 pt-28 pb-28 md:items-center md:px-24 lg:px-36" id="top">
         <div className="z-10 w-full sm:relative md:w-2/3">
-          <h1 className="m-0 max-w-3xl text-5xl leading-none text-[#f4f3ef] sm:text-6xl md:text-7xl xl:text-9xl" aria-label={dict.hero.titleAria}>
-            <span className="hero-title-reveal hero-title-reveal-first block font-[family-name:var(--font-alumni-sans)] font-black">{dict.hero.titleLine1}</span>
-            <span className="hero-title-reveal hero-title-reveal-second -mt-3 block whitespace-nowrap md:-mt-5">
+          <h1 className="m-0 max-w-3xl text-5xl leading-[0.8] text-[#f4f3ef] sm:text-6xl md:text-7xl xl:text-9xl" aria-label={dict.hero.titleAria}>
+            <span className={`hero-title-reveal hero-title-reveal-first block font-[family-name:var(--font-alumni-sans)] font-black ${lang === "en" ? "-ml-[0.06em]" : ""}`}>{dict.hero.titleLine1}</span>
+            <span className="hero-title-reveal hero-title-reveal-second -mt-[0.18em] block whitespace-nowrap">
               <span className="font-[family-name:var(--font-alumni-sans)] font-black">{dict.hero.titleLine2}</span>
               {" "}
               <GlitchWord className="-ml-[0.06em] font-[family-name:var(--font-alumni-sans)] font-thin italic tracking-wide">{dict.hero.titleWord}</GlitchWord>
@@ -273,7 +263,7 @@ export default function Home() {
             </div>
           </div>
 
-          <dl className="relative mt-20 grid md:mt-28 md:grid-cols-3" ref={metricsRef}>
+          {/* <dl className="relative mt-20 grid md:mt-28 md:grid-cols-3" ref={metricsRef}>
             <span className={`pointer-events-none absolute inset-x-0 top-0 z-10 h-px origin-left bg-white/20 transition-transform duration-[1400ms] ease-[cubic-bezier(.16,1,.3,1)] ${metricsRevealed ? "scale-x-100" : "scale-x-0"}`} aria-hidden="true" />
             <span className={`pointer-events-none absolute inset-x-0 bottom-0 z-10 h-px origin-right bg-white/20 transition-transform delay-300 duration-[1400ms] ease-[cubic-bezier(.16,1,.3,1)] ${metricsRevealed ? "scale-x-100" : "scale-x-0"}`} aria-hidden="true" />
             {[
@@ -294,29 +284,35 @@ export default function Home() {
                 <span className="absolute right-0 bottom-0 left-0 h-px origin-left scale-x-0 bg-[#86a98d] transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
               </div>
             ))}
-          </dl>
+          </dl> */}
         </div>
       </section>
 
-      <section className="relative z-0 overflow-hidden bg-[#08090a]" id="eden" ref={edenSectionRef}>
+      <section
+        className="relative z-0 overflow-hidden bg-[#08090a] bg-[url('/backeden.png')] bg-cover bg-center bg-fixed max-[768px]:bg-scroll"
+        id="eden"
+      >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-[#86a98d]/35 to-transparent" aria-hidden="true" />
-        <div className="eden-parallax pointer-events-none absolute inset-x-0 -inset-y-96 z-0" aria-hidden="true" ref={edenBackdropRef}>
-          <Image alt="" className="object-cover" fill loading="eager" quality={100} sizes="112vw" src="/backeden.png" />
-        </div>
         <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(8,9,10,.85),rgba(8,9,10,.5)_42%,rgba(8,9,10,.28)_68%,rgba(8,9,10,.58))]" aria-hidden="true" />
         <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[#08090a] via-transparent to-[#08090a]" aria-hidden="true" />
-        <div className="relative z-[3] mx-auto flex min-h-[55svh] max-w-7xl flex-col items-center justify-center px-6 py-12 text-center md:px-24 md:py-16 lg:px-36">
+        <div className="relative z-[3] mx-auto flex min-h-[70svh] max-w-7xl flex-col items-center justify-center px-6 py-18 text-center md:px-24 md:py-22 lg:px-36">
           <h2 className="title-traces relative inline-block w-fit font-[family-name:var(--font-alumni-sans)] text-7xl leading-none font-bold tracking-wide text-[#f4f3ef] italic sm:text-8xl md:text-9xl xl:text-[11rem]">
             <span className="title-traces-main relative z-[1] block">EDEN</span>
             <span className="glitch-ghost glitch-ghost-eden pointer-events-none absolute inset-0 z-[2] block text-[#86a98d]" aria-hidden="true">EDEN</span>
             <span className="glitch-ghost glitch-ghost-white pointer-events-none absolute inset-0 z-[2] block text-[#f4f3ef]" aria-hidden="true">EDEN</span>
             <span className="glitch-scanline pointer-events-none absolute top-[58%] right-0 left-0 z-[3] h-0.5 bg-[#86a98d]" aria-hidden="true" />
           </h2>
-          <span className={`${telemetryClass} mt-6 text-white`}>{dict.eden.season}</span>
-          <div className="mt-6 max-w-2xl border border-white/15 bg-black/20 px-8 py-8 shadow-[0_12px_34px_rgba(0,0,0,.24)] backdrop-blur-md md:px-16 md:py-10">
-            <p className="text-xl font-black text-[#dce9df] md:text-2xl">{dict.eden.tagline}</p>
-            <p className="mt-6 text-sm leading-7 font-thin text-[#aaa9a4] md:text-base">
-              <RichText className="font-thin text-[#f4f3ef]">{dict.eden.body}</RichText>
+          <span className={`${telemetryClass} mt-5 flex items-center gap-4 text-[#b8d2bd]`}>
+            <span className="h-px w-8 bg-[#86a98d]/50" aria-hidden="true" />
+            {dict.eden.season}
+            <span className="h-px w-8 bg-[#86a98d]/50" aria-hidden="true" />
+          </span>
+          <div className="relative mt-8 w-full max-w-2xl border-y border-[#86a98d]/25 bg-black/20 px-6 py-8 backdrop-blur-md sm:px-10 md:mt-10 md:px-12 md:py-10">
+            <span className="pointer-events-none absolute -top-px -left-px size-3 border-t border-l border-[#86a98d]" aria-hidden="true" />
+            <span className="pointer-events-none absolute -right-px -bottom-px size-3 border-r border-b border-[#86a98d]" aria-hidden="true" />
+            <p className="m-0 text-balance font-[family-name:var(--font-alumni-sans)] text-4xl leading-none font-medium tracking-wide text-[#dce9df] sm:text-5xl md:text-6xl">{dict.eden.tagline}</p>
+            <p className="m-0 mt-4 text-balance text-sm leading-7 font-light text-[#dce9df]/80 md:mt-5 md:text-base">
+              <RichText className="font-semibold text-[#f4f3ef]">{dict.eden.body}</RichText>
             </p>
           </div>
         </div>
@@ -360,8 +356,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative bg-[#08090a] px-6 py-24 md:px-24 md:py-32 lg:px-36 lg:py-40" id="collection">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#86a98d]/35 to-transparent" aria-hidden="true" />
+      <section className="relative bg-[#08090a] px-6 py-14 md:px-24 md:py-14 lg:px-36 lg:py-14" id="collection">
+        {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#86a98d]/35 to-transparent" aria-hidden="true" /> */}
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 md:grid-cols-12 md:items-end">
             <h2 className="m-0 font-[family-name:var(--font-alumni-sans)] text-5xl leading-none font-semibold tracking-wide text-[#f4f3ef] sm:text-6xl md:col-span-7 md:text-7xl lg:text-8xl">
@@ -424,7 +420,7 @@ export default function Home() {
             </p>
           )}
 
-          <div className="mt-16 grid gap-5 md:mt-24 md:grid-cols-3 md:items-stretch md:gap-6">
+          <div className="mt-16 grid gap-6 md:mt-24 xl:grid-cols-3 xl:items-stretch xl:gap-6" ref={packsRef}>
             {[dict.packs.first, dict.packs.extended, dict.packs.deep].map((pack, index) => {
               const packId = PACK_IDS[index];
               const featured = index === 1;
@@ -435,24 +431,31 @@ export default function Home() {
 
               return (
                 <article
-                  className={`group relative flex min-h-[400px] flex-col overflow-hidden border px-6 py-8 transition-[transform,box-shadow,border-color] duration-500 sm:px-8 sm:py-9 md:min-h-[440px] ${
+                  className={`group relative flex min-w-0 flex-col border px-6 pb-7 pt-8 transition-[opacity,filter,transform,border-color,background-color] sm:px-8 sm:pb-8 xl:min-h-[470px] motion-reduce:transition-none ${
                     featured
-                      ? "border-[#86a98d]/60 bg-[linear-gradient(160deg,rgba(134,169,141,.14),rgba(134,169,141,.02)_60%)] shadow-[0_24px_70px_rgba(0,0,0,.4)] md:-my-4 md:scale-[1.035]"
-                      : "border-white/12 bg-white/[.015] hover:border-white/25 hover:bg-white/[.03]"
-                  } hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(0,0,0,.45)]`}
+                      ? "border-[#86a98d] bg-[#86a98d]/12 xl:-my-4 xl:pt-12 xl:pb-12"
+                      : "border-white/15 bg-[#08090a] hover:border-[#86a98d]/60 hover:bg-[#86a98d]/5"
+                  } motion-safe:hover:-translate-y-1 ${
+                    packsRevealed ? "opacity-100 blur-none" : "opacity-0 blur-sm"
+                  }`}
                   key={pack.name}
+                  style={{
+                    transitionDuration: "1000ms, 1000ms, 300ms, 300ms, 300ms",
+                    transitionTimingFunction: "cubic-bezier(.16,1,.3,1), cubic-bezier(.16,1,.3,1), ease, ease, ease",
+                    transitionDelay: `${index * 160}ms, ${index * 160}ms, 0ms, 0ms, 0ms`,
+                  }}
                 >
                   <span className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent ${featured ? "via-[#b8d2bd]" : "via-white/25"}`} aria-hidden="true" />
 
                   {featured && (
-                    <span className="-mx-6 -mt-8 mb-6 flex items-center justify-center gap-1.5 bg-[#86a98d] py-2 font-[family-name:var(--font-geist-mono)] text-[9px] font-semibold tracking-widest text-[#08090a] sm:-mx-8 sm:-mt-9">
+                    <span className="absolute -top-3.5 left-6 flex min-h-7 items-center justify-center gap-2 bg-[#86a98d] px-3 py-1 font-[family-name:var(--font-geist-mono)] text-[10px] font-semibold tracking-wider text-[#08090a] sm:left-8">
                       <svg aria-hidden="true" className="size-2.5 fill-current" viewBox="0 0 12 12"><path d="M6 0l1.545 3.755L11.5 4.5 8.6 7.09 9.27 11 6 9.1 2.73 11l.67-3.91L.5 4.5l3.955-.745L6 0z" /></svg>
                       {dict.packs.mostChosen}
                     </span>
                   )}
 
                   <div className="flex items-center justify-between gap-3">
-                    <span className={`${telemetryClass} ${featured ? "text-[#dce9df]" : "text-white/45"}`}>{pack.name}</span>
+                    <h3 className="m-0 font-[family-name:var(--font-alumni-sans)] text-3xl leading-none font-semibold tracking-wide text-[#dce9df]">{pack.name}</h3>
                     <div className="flex items-end gap-1" aria-hidden="true">
                       {[0, 1, 2].map((bar) => (
                         <span className={`w-1.5 ${bar === 0 ? "h-2" : bar === 1 ? "h-3.5" : "h-5"} ${bar <= index ? "bg-[#86a98d]" : "bg-white/10"}`} key={bar} />
@@ -460,32 +463,34 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="mt-10 flex items-end justify-between gap-4">
+                  <div className="mt-8 flex items-end justify-between gap-4 border-b border-[#86a98d]/20 pb-7">
                     <div>
-                      <span className={`block font-[family-name:var(--font-alumni-sans)] text-7xl leading-[.75] font-light tabular-nums sm:text-8xl ${featured ? "text-[#f4f3ef]" : "text-[#dce9df]"}`}>{pack.count}</span>
-                      <span className="mt-4 block font-[family-name:var(--font-geist-mono)] text-xs tracking-widest text-[#86a98d]">{dict.packs.transmissions.toUpperCase()}</span>
+                      <span className={`block font-[family-name:var(--font-alumni-sans)] text-8xl leading-[.85] font-semibold tabular-nums ${featured ? "text-[#f4f3ef]" : "text-[#dce9df]"}`}>{pack.count}</span>
+                      <span className="mt-3 block font-[family-name:var(--font-geist-mono)] text-[11px] tracking-wider text-[#b8d2bd]">{dict.packs.transmissions.toUpperCase()}</span>
                     </div>
-                    <span className="font-[family-name:var(--font-alumni-sans)] text-4xl leading-none font-semibold tabular-nums text-[#f4f3ef]">{pack.price}</span>
+                    {savingsPercent > 0 && <span className="mb-0.5 max-w-28 text-right font-[family-name:var(--font-geist-mono)] text-xs leading-5 font-semibold text-[#b8d2bd]">{dict.packs.save.replace("{percent}", String(savingsPercent))}</span>}
                   </div>
 
-                  <div className="mt-3 flex items-center gap-2.5 font-[family-name:var(--font-geist-mono)] text-[10px] tracking-widest text-white/35">
-                    {unitPriceLabel} {dict.packs.perTransmission}
-                    {savingsPercent > 0 && <span className="border border-[#86a98d]/50 bg-[#86a98d]/10 px-2 py-0.5 text-[#b8d2bd]">{dict.packs.save.replace("{percent}", String(savingsPercent))}</span>}
+                  <div className="mt-6">
+                    <span className="block font-[family-name:var(--font-alumni-sans)] text-5xl leading-none font-semibold tabular-nums text-[#f4f3ef]">{pack.price}</span>
+                    <p className="m-0 mt-2 font-[family-name:var(--font-geist-mono)] text-[10px] leading-5 tracking-wider text-[#aaa9a4]">{unitPriceLabel} {dict.packs.perTransmission}</p>
                   </div>
 
-                  <p className="m-0 mt-8 max-w-xs text-sm leading-6 font-light text-[#aaa9a4]">{pack.detail}</p>
+                  <p className="m-0 mt-5 mb-8 max-w-xs text-sm leading-6 text-[#dce9df]">{pack.detail}</p>
 
                   <button
-                    className={`signal-cta group/buy relative mt-auto flex min-h-12 cursor-pointer items-center justify-center gap-2.5 overflow-hidden px-4 font-[family-name:var(--font-geist-mono)] text-[10px] font-semibold tracking-widest transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#86a98d] disabled:pointer-events-none disabled:opacity-60 sm:text-[11px] sm:tracking-wider ${
+                    className={`group/buy relative mt-auto flex min-h-14 cursor-pointer items-center justify-between gap-2.5 px-5 font-[family-name:var(--font-geist-mono)] text-xs font-semibold tracking-wider transition-[background-color,border-color] duration-200 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#86a98d] disabled:pointer-events-none disabled:opacity-60 ${
                       featured
-                        ? "border border-[#86a98d] bg-[#86a98d] text-[#08090a] shadow-[0_10px_30px_rgba(134,169,141,.35)] hover:bg-[#9bbba1] hover:shadow-[0_14px_38px_rgba(134,169,141,.5)]"
+                        ? "border border-[#86a98d] bg-[#86a98d] text-[#08090a] hover:bg-[#b8d2bd] hover:border-[#b8d2bd]"
                         : "border border-[#86a98d]/60 bg-[#86a98d]/10 text-[#dce9df] hover:border-[#86a98d] hover:bg-[#86a98d]/20"
                     }`}
                     disabled={pendingPackId === packId}
+                    aria-label={`${dict.packs.buy} ${pack.name} — ${pack.price}`}
+                    aria-busy={pendingPackId === packId}
                     onClick={() => void handleBuy(packId)}
                     type="button"
                   >
-                    <span className="signal-cta-label relative z-10" data-text={dict.packs.buy}>
+                    <span>
                       {pendingPackId === packId ? dict.packs.processing : dict.packs.buy}
                     </span>
                     <svg aria-hidden="true" className="relative z-10 size-3.5 shrink-0 fill-none stroke-current stroke-[1.5] transition-transform duration-300 group-hover/buy:translate-x-1" viewBox="0 0 22 22">

@@ -47,6 +47,18 @@ export default function AuthModal({ open, onClose, onAuthenticated }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [googleReady, setGoogleReady] = useState(false);
+  const [step, setStep] = useState(0);
+  const [fields, setFields] = useState({ email: "", pseudo: "", password: "" });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (open) formRef.current?.querySelector<HTMLInputElement>("input")?.focus();
+  }, [open, mode, step]);
+
+  function updateField(event: React.ChangeEvent<HTMLInputElement>) {
+    setFields((current) => ({ ...current, [event.target.name]: event.target.value }));
+    setFeedback("");
+  }
 
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -57,6 +69,8 @@ export default function AuthModal({ open, onClose, onAuthenticated }: Props) {
   // Also clears transient UI state, so a stale error (or the previous success screen)
   // doesn't flash the next time the modal opens.
   function handleClose() {
+    setStep(0);
+    setFields({ email: "", pseudo: "", password: "" });
     setFeedback("");
     setIsSubmitting(false);
     setMode("register");
@@ -65,6 +79,9 @@ export default function AuthModal({ open, onClose, onAuthenticated }: Props) {
   }
 
   function switchMode(next: Mode) {
+    if (isSubmitting || next === mode) return;
+    setStep(0);
+    setFields({ email: "", pseudo: "", password: "" });
     setFeedback("");
     setMode(next);
   }
@@ -134,13 +151,15 @@ export default function AuthModal({ open, onClose, onAuthenticated }: Props) {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (isSubmitting) return;
     setFeedback("");
+    if (mode === "register" && step < 2) {
+      setStep((current) => current + 1);
+      return;
+    }
     setIsSubmitting(true);
 
-    const form = new FormData(event.currentTarget);
-    const email = String(form.get("email") ?? "");
-    const password = String(form.get("password") ?? "");
-    const pseudo = String(form.get("pseudo") ?? "");
+    const { email, password, pseudo } = fields;
 
     try {
       const tokens =
@@ -149,6 +168,7 @@ export default function AuthModal({ open, onClose, onAuthenticated }: Props) {
       if (mode === "register") {
         // Stay open on a success screen — registering also joins the waitlist, worth confirming.
         setIsSubmitting(false);
+        setFields({ email: "", pseudo: "", password: "" });
         setView("registerSuccess");
       } else {
         handleClose();
@@ -209,37 +229,55 @@ export default function AuthModal({ open, onClose, onAuthenticated }: Props) {
             </h2>
 
             <div className="mt-6 flex items-center gap-6 border-b border-white/10 font-[family-name:var(--font-geist-mono)] text-xs tracking-widest">
-              <button className="auth-tab cursor-pointer border-0 bg-transparent pb-3 text-[#aaa9a4] data-[active=true]:text-[#dce9df]" data-active={mode === "login"} onClick={() => switchMode("login")} type="button">
-                {dict.auth.tabLogin}
-              </button>
               <button className="auth-tab cursor-pointer border-0 bg-transparent pb-3 text-[#aaa9a4] data-[active=true]:text-[#dce9df]" data-active={mode === "register"} onClick={() => switchMode("register")} type="button">
                 {dict.auth.tabRegister}
               </button>
+              <button className="auth-tab cursor-pointer border-0 bg-transparent pb-3 text-[#aaa9a4] data-[active=true]:text-[#dce9df]" data-active={mode === "login"} onClick={() => switchMode("login")} type="button">
+                {dict.auth.tabLogin}
+              </button>
             </div>
 
-            <form className="mt-6 flex flex-col gap-5" key={mode} onSubmit={handleSubmit}>
+            <form className="mt-6 flex flex-col gap-5" key={mode} onSubmit={handleSubmit} ref={formRef}>
+              {mode === "register" && (
+                <div>
+                  <p className="m-0 mb-3 flex items-center justify-between gap-3 font-[family-name:var(--font-geist-mono)] text-[10px] tracking-widest text-[#b8d2bd]" aria-live="polite">
+                    <span>{[dict.auth.emailLabel, dict.auth.pseudoLabel, dict.auth.passwordLabel][step]}</span>
+                    <span>{step + 1} / 3</span>
+                  </p>
+                  <div className="flex gap-2" aria-hidden="true">
+                    {[0, 1, 2].map((index) => <span key={index} className={`h-px flex-1 transition-colors motion-reduce:transition-none ${index <= step ? "bg-[#86a98d]" : "bg-white/15"}`} />)}
+                  </div>
+                </div>
+              )}
+              {(mode === "login" || step === 0) && (
               <label className="flex flex-col gap-2">
                 <span className="font-[family-name:var(--font-geist-mono)] text-[10px] tracking-widest text-[#aaa9a4]">{dict.auth.emailLabel}</span>
-                <input autoComplete="email" className="auth-field" maxLength={254} name="email" placeholder={dict.auth.emailPlaceholder} required type="email" />
+                <input value={fields.email} onChange={updateField} disabled={isSubmitting} autoComplete="email" className="auth-field" maxLength={254} name="email" placeholder={dict.auth.emailPlaceholder} required type="email" />
               </label>
+              )}
 
-              {mode === "register" && (
+              {mode === "register" && step === 1 && (
                 <label className="flex flex-col gap-2">
                   <span className="font-[family-name:var(--font-geist-mono)] text-[10px] tracking-widest text-[#aaa9a4]">{dict.auth.pseudoLabel}</span>
-                  <input autoComplete="username" className="auth-field" maxLength={20} minLength={3} name="pseudo" pattern="[a-zA-Z0-9_]+" placeholder={dict.auth.pseudoPlaceholder} required type="text" />
+                  <input value={fields.pseudo} onChange={updateField} disabled={isSubmitting} autoComplete="username" className="auth-field" maxLength={20} minLength={3} name="pseudo" pattern="[a-zA-Z0-9_]+" placeholder={dict.auth.pseudoPlaceholder} required type="text" />
                 </label>
               )}
 
-              <label className="flex flex-col gap-2">
+              {(mode === "login" || step === 2) && <label className="flex flex-col gap-2">
                 <span className="font-[family-name:var(--font-geist-mono)] text-[10px] tracking-widest text-[#aaa9a4]">{dict.auth.passwordLabel}</span>
-                <input autoComplete={mode === "login" ? "current-password" : "new-password"} className="auth-field" maxLength={72} minLength={8} name="password" placeholder={dict.auth.passwordPlaceholder} required type="password" />
-              </label>
+                <input value={fields.password} onChange={updateField} disabled={isSubmitting} autoComplete={mode === "login" ? "current-password" : "new-password"} className="auth-field" maxLength={72} minLength={8} name="password" placeholder={dict.auth.passwordPlaceholder} required type="password" />
+              </label>}
 
               {feedback && <p className="m-0 text-sm leading-5 text-[#d8a2a2]" role="alert">{feedback}</p>}
 
               <button className="mt-1 min-h-12 w-full cursor-pointer border border-[#86a98d]/55 bg-[#86a98d]/10 px-5 font-[family-name:var(--font-geist-mono)] text-xs tracking-widest text-[#dce9df] transition-[background-color,border-color] hover:border-[#b8d2bd] hover:bg-[#86a98d]/20 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#86a98d] disabled:cursor-wait disabled:opacity-50" disabled={isSubmitting} type="submit">
-                {isSubmitting ? dict.auth.submitting : mode === "login" ? dict.auth.submitLogin : dict.auth.submitRegister}
+                {isSubmitting ? dict.auth.submitting : mode === "login" ? dict.auth.submitLogin : step < 2 ? dict.auth.nextStep : dict.auth.submitRegister}
               </button>
+              {mode === "register" && step > 0 && (
+                <button className="min-h-10 cursor-pointer self-center px-4 text-xs text-[#b8d2bd] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-[#86a98d] disabled:opacity-50" disabled={isSubmitting} onClick={() => { setFeedback(""); setStep((current) => current - 1); }} type="button">
+                  {dict.auth.previousStep}
+                </button>
+              )}
             </form>
 
             {googleClientId ? (

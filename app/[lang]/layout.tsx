@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Alumni_Sans, Geist_Mono, Inter } from "next/font/google";
 import AuthProvider from "@/components/AuthProvider";
+import Footer from "@/components/Footer";
 import I18nProvider from "@/components/I18nProvider";
 import { getDictionary } from "@/lib/dictionaries";
 import { defaultLocale, isLocale, localeHref, locales } from "@/lib/i18n";
@@ -64,6 +65,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
       <body className="min-h-full flex flex-col">
         <I18nProvider dict={dict} lang={isLocale(lang) ? lang : defaultLocale}>
           <AuthProvider>{children}</AuthProvider>
+          <Footer />
         </I18nProvider>
       </body>
     </html>

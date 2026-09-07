@@ -176,12 +176,15 @@
     "passwordPlaceholder": "••••••••",
     "submitLogin": "LOG IN",
     "submitRegister": "CREATE ACCOUNT",
+    "nextStep": "CONTINUE",
+    "previousStep": "Previous step",
     "submitting": "CONNECTING…",
     "orDivider": "OR",
     "googleUnavailable": "Google sign-in is not configured.",
     "connectedAs": "Connected as {pseudo}",
     "logout": "Log out",
     "transmissionCreditsAria": "{count} extra transmissions available",
+    "transmissionCreditsLabel": "{count} additional transmissions",
     "registerSuccessTitle": "Your account is ready.",
     "registerSuccessBody": "**Your account has been created** and you've been added to the early-access waitlist. **You'll receive an email** as soon as your access to ORHA is ready.",
     "errors": {
@@ -194,5 +197,314 @@
       "unavailable": "The sign-in service is temporarily unavailable.",
       "failed": "Something went wrong. Please try again."
     }
+  },
+  "legal": {
+    "nav": {
+      "legalNotice": "Legal Notice",
+      "terms": "Terms of Service",
+      "sales": "Terms of Sale",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "odds": "Draw Odds"
+    },
+    "common": {
+      "backHome": "Back to home",
+      "updated": "Last updated on 7 September 2026"
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "sections": [
+        {
+          "heading": "Website publisher",
+          "body": [
+            "ORHA is published by **Lenny Gomes**, operating as a sole trader (auto-entrepreneur) under French law.",
+            "SIRET: 93883298700011 — SIREN: 938832987",
+            "Registered address: available on request at the contact email below.",
+            "VAT: not applicable, Article 293 B of the French General Tax Code (VAT exemption for small businesses).",
+            "Contact: gleam-pro@proton.me",
+            "Publication director: Lenny Gomes."
+          ]
+        },
+        {
+          "heading": "Hosting",
+          "body": [
+            "The website is hosted by **Vercel Inc.**, 340 S Lemon Ave #4133, Walnut, CA 91789, United States — vercel.com",
+            "The database is operated by **Neon**, provisioned through Vercel's integration marketplace."
+          ]
+        },
+        {
+          "heading": "Intellectual property",
+          "body": [
+            "The name “ORHA”, its logo, visual identity, texts, and all Archive artwork are the exclusive property of the publisher or its licensors, protected by French and international intellectual property law. Any reproduction without prior written consent is prohibited."
+          ]
+        },
+        {
+          "heading": "Liability",
+          "body": [
+            "ORHA is currently in a pre-launch phase; content and features described on this website may evolve before the app opens. The publisher cannot be held liable for temporary unavailability of the website or for indirect damages arising from its use."
+          ]
+        },
+        {
+          "heading": "Applicable law",
+          "body": [
+            "This notice is governed by French law. Any dispute falls under the jurisdiction of the competent French courts."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "intro": "These Terms of Service govern access to and use of the ORHA website and, once available, the ORHA mobile application (together, the “Service”), published by Lenny Gomes (see our Legal Notice). By creating an account or using the Service, you accept these Terms in full.",
+      "sections": [
+        {
+          "heading": "1. The Service",
+          "body": [
+            "ORHA lets you build a digital collection of “Archives” discovered through a daily, randomized transmission. During the current pre-launch phase, the Service consists of a waitlist, an account system, and the ability to purchase transmission packs ahead of the app's opening."
+          ]
+        },
+        {
+          "heading": "2. Eligibility & account",
+          "body": [
+            "You must be at least 16 years old, or have the consent of a parent or legal guardian, to create an account.",
+            "You are responsible for the confidentiality of your credentials and for all activity under your account. Notify us immediately at gleam-pro@proton.me of any unauthorized use.",
+            "One account per person. Accounts are personal and may not be sold, transferred, or shared."
+          ]
+        },
+        {
+          "heading": "3. Acceptable use",
+          "body": [
+            "When using the Service, you agree not to:"
+          ],
+          "list": [
+            "Attempt to access, tamper with, or disrupt the Service's infrastructure (scraping, bots, reverse engineering, unauthorized security testing);",
+            "Use the Service for any unlawful purpose or in a way that infringes the rights of others;",
+            "Create multiple accounts to circumvent limits (e.g. the daily free transmission), or resell transmission credits or Archives outside any feature we may officially provide for that purpose;",
+            "Impersonate another person or entity."
+          ],
+          "footer": [
+            "We may suspend or terminate any account that breaches this section, without prejudice to any other remedy."
+          ]
+        },
+        {
+          "heading": "4. Intellectual property",
+          "body": [
+            "All intellectual property relating to the Service is protected as described in our Legal Notice."
+          ]
+        },
+        {
+          "heading": "5. Availability & changes",
+          "body": [
+            "The Service is provided on an evolving, pre-launch basis. We may modify, suspend, or discontinue features, including the waitlist or pack purchases, at any time, and will use reasonable efforts to inform you of material changes."
+          ]
+        },
+        {
+          "heading": "6. Liability",
+          "body": [
+            "The Service is provided “as is”. To the extent permitted by law, the publisher's liability is limited to direct, foreseeable damages and excludes indirect or consequential loss."
+          ]
+        },
+        {
+          "heading": "7. Governing law & disputes",
+          "body": [
+            "These Terms are governed by French law. Consumers residing in the European Union benefit from any mandatory protections of their local law. In the absence of an amicable resolution, disputes fall under the jurisdiction of the competent French courts."
+          ]
+        },
+        {
+          "heading": "8. Changes to these Terms",
+          "body": [
+            "We may update these Terms as the Service evolves toward launch. Material changes will be notified through the website or by email.",
+            "Contact: gleam-pro@proton.me"
+          ]
+        }
+      ]
+    },
+    "sales": {
+      "title": "Terms of Sale",
+      "intro": "These Terms of Sale apply to any purchase of transmission packs made on the ORHA website, in addition to our Terms of Service. Please read them before placing an order.",
+      "sections": [
+        {
+          "heading": "1. Products",
+          "body": [
+            "ORHA currently offers transmission packs (First Signal, Extended Signal, Deep Signal), each credited to your account as additional daily transmissions on top of your free daily transmission. The composition and price of each pack are displayed on the purchase page before checkout."
+          ]
+        },
+        {
+          "heading": "2. Nature of transmission credits",
+          "body": [
+            "Transmission credits are a digital feature of the Service, used to trigger additional discoveries. **They are not a currency, have no monetary value outside ORHA, cannot be exchanged for cash, and cannot be transferred between accounts.** Purchasing credits does not increase or guarantee the rarity of any Archive obtained — see our Draw Odds page."
+          ]
+        },
+        {
+          "heading": "3. Order process",
+          "body": [
+            "An account is required to place an order. Orders are placed by selecting a pack and completing payment through our payment processor, Stripe. Your order is confirmed once payment is captured, and credits are added to your account automatically."
+          ]
+        },
+        {
+          "heading": "4. Price & payment",
+          "body": [
+            "Prices are displayed in euros. As a sole trader under the VAT exemption (Article 293 B of the French General Tax Code), prices are not subject to VAT. Payment is processed securely by Stripe; ORHA never receives or stores your card details."
+          ]
+        },
+        {
+          "heading": "5. Right of withdrawal",
+          "body": [
+            "Under the EU Consumer Rights Directive and Article L221-28 of the French Consumer Code, the right of withdrawal does not apply to digital content not supplied on a tangible medium once its performance has begun with your prior express consent and acknowledgment that you thereby lose your right of withdrawal. **By completing your purchase, you expressly request immediate delivery of your transmission credits and acknowledge that you waive your withdrawal right accordingly.**"
+          ]
+        },
+        {
+          "heading": "6. Complaints & support",
+          "body": [
+            "For any question about an order, contact gleam-pro@proton.me. We aim to respond within a reasonable timeframe."
+          ]
+        },
+        {
+          "heading": "7. Applicable law",
+          "body": [
+            "These Terms of Sale are governed by French law, without prejudice to any mandatory protections applicable to consumers residing in the European Union."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "This Privacy Policy explains what personal data ORHA collects, why, and how you can exercise your rights, in accordance with the GDPR.",
+      "sections": [
+        {
+          "heading": "1. Who is responsible for your data",
+          "body": [
+            "The data controller is **Lenny Gomes**, auto-entrepreneur, contact: gleam-pro@proton.me."
+          ]
+        },
+        {
+          "heading": "2. Data we collect",
+          "body": [],
+          "list": [
+            "Account data: email address, username, hashed password (or Google account identifier if you sign in with Google);",
+            "Waitlist data: email address, sign-up date;",
+            "Purchase data: order history and amount, processed by Stripe — ORHA does not receive or store your card details;",
+            "Technical data: IP address, browser type, and similar log data collected by our hosting provider, Vercel, for security and reliability purposes;",
+            "Preference data: chosen language, stored in a cookie."
+          ]
+        },
+        {
+          "heading": "3. Why we use your data",
+          "body": [],
+          "list": [
+            "Create and manage your account and waitlist entry;",
+            "Process your purchases and credit your account;",
+            "Send you service-related emails (confirmation, early-access notice);",
+            "Secure the Service and prevent fraud or abuse;",
+            "Comply with our legal and accounting obligations."
+          ]
+        },
+        {
+          "heading": "4. Legal basis",
+          "body": [
+            "Processing is based on the performance of our contract with you (account, purchases), our legitimate interest (security, service improvement), and, where applicable, your consent (marketing communications, if any)."
+          ]
+        },
+        {
+          "heading": "5. Who receives your data",
+          "body": [
+            "Your data may be shared with service providers, strictly for the purposes above: **Vercel** (hosting), **Neon** (database), **Stripe** (payment processing). We do not sell your data."
+          ]
+        },
+        {
+          "heading": "6. International transfers",
+          "body": [
+            "Some of these providers may process data outside the European Union (notably in the United States). Where this occurs, we rely on the safeguards they provide (such as standard contractual clauses) to ensure an adequate level of protection."
+          ]
+        },
+        {
+          "heading": "7. How long we keep your data",
+          "body": [
+            "Account data is kept for as long as your account is active, plus a reasonable period afterward to comply with legal obligations. Purchase and invoicing records are kept for **10 years**, as required by French accounting law. Waitlist data is kept until ORHA opens or until you ask us to delete it."
+          ]
+        },
+        {
+          "heading": "8. Your rights",
+          "body": [
+            "Under the GDPR, you have the right to access, rectify, erase, restrict, or port your data, and to object to certain processing. You may exercise these rights by writing to gleam-pro@proton.me. You also have the right to lodge a complaint with the CNIL (cnil.fr) or your local data protection authority."
+          ]
+        },
+        {
+          "heading": "9. Security",
+          "body": [
+            "We apply reasonable technical and organizational measures (password hashing, restricted access, secure providers) to protect your data."
+          ]
+        },
+        {
+          "heading": "10. Children",
+          "body": [
+            "The Service is not directed at children under 16. We do not knowingly collect data from children below this age."
+          ]
+        },
+        {
+          "heading": "11. Changes to this policy",
+          "body": [
+            "We may update this Policy as the Service evolves. Material changes will be notified through the website."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "intro": "This page explains the cookies and similar technologies used on the ORHA website.",
+      "sections": [
+        {
+          "heading": "What we use",
+          "body": [
+            "ORHA currently uses only **strictly necessary** technologies: a cookie to remember your language preference, and your browser's local storage to keep you signed in. None of these require your consent under the ePrivacy rules, and we do not use any advertising or analytics cookie at this time."
+          ]
+        },
+        {
+          "heading": "Managing cookies",
+          "body": [
+            "You can delete or block cookies at any time through your browser settings. Doing so may affect the language preference feature but will not prevent you from using the core Service."
+          ]
+        },
+        {
+          "heading": "Future changes",
+          "body": [
+            "Should we introduce analytics or advertising cookies in the future, we will update this page and request your consent beforehand where required."
+          ]
+        }
+      ]
+    },
+    "odds": {
+      "title": "Draw Odds",
+      "intro": "Purchasing transmission packs gives you additional daily discoveries — it does not change how those discoveries are determined. This page explains how it works.",
+      "sections": [
+        {
+          "heading": "How a discovery works",
+          "body": [
+            "Each transmission you use — free or purchased — triggers the discovery of one Archive. The Archive's **rarity tier** (Common, Prime, Anomaly, Singularity) is determined **randomly** at the moment of discovery, independently of your purchase history."
+          ]
+        },
+        {
+          "heading": "No guaranteed odds",
+          "body": [
+            "**Draw probabilities are not fixed or guaranteed.** Buying additional transmission packs increases how many discoveries you can make — it does not increase, guarantee, or influence the rarity you obtain on any individual discovery. We do not currently publish fixed drop rates; should this change, this page will be updated accordingly."
+          ]
+        },
+        {
+          "heading": "Not a game of chance",
+          "body": [
+            "Archives have no monetary value, cannot be exchanged for cash, and cannot be resold outside ORHA. As no stake can result in a monetary prize, this feature does not constitute a game of chance or gambling under French law."
+          ]
+        }
+      ]
+    }
+  },
+  "footer": {
+    "tagline": "The future leaves traces.",
+    "exploreHeading": "Explore",
+    "legalHeading": "Legal",
+    "contactHeading": "Contact",
+    "rarities": "Rarity tiers",
+    "collection": "Collection",
+    "packs": "Transmission packs",
+    "copyright": "© {year} ORHA. All rights reserved."
   }
 }

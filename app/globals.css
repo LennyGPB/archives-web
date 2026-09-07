@@ -13,7 +13,6 @@ body { margin:0; background:var(--void); color:var(--ink); font-family:var(--fon
 
 /* Hero image and atmospheric effects */
 .atmosphere { background-image:linear-gradient(90deg,rgba(8,9,10,.28),rgba(8,9,10,.08) 48%,rgba(8,9,10,.14)),url("/backweb.png"); background-position:68% center; background-size:cover; background-repeat:no-repeat; }
-.eden-parallax { transform:translate3d(0,-380px,0) scale(1.12); will-change:transform; }
 .aurora { position:absolute; display:block; border-radius:50%; filter:blur(90px); opacity:.62; animation:breathe 11s ease-in-out infinite alternate; }
 .aurora-a { right:-18vw; top:-26vh; width:74vw; height:82vh; background:rgba(134,169,141,.17); }
 .aurora-b { right:12vw; top:38vh; width:36vw; height:34vh; background:rgba(95,116,164,.08); animation-delay:-4s; }

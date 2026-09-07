@@ -176,12 +176,15 @@
     "passwordPlaceholder": "••••••••",
     "submitLogin": "SE CONNECTER",
     "submitRegister": "CRÉER LE COMPTE",
+    "nextStep": "CONTINUER",
+    "previousStep": "Étape précédente",
     "submitting": "CONNEXION…",
     "orDivider": "OU",
     "googleUnavailable": "La connexion Google n’est pas configurée.",
     "connectedAs": "Connecté·e en tant que {pseudo}",
     "logout": "Se déconnecter",
     "transmissionCreditsAria": "{count} transmissions supplémentaires disponibles",
+    "transmissionCreditsLabel": "{count} transmissions additionnelles",
     "registerSuccessTitle": "Votre compte est prêt.",
     "registerSuccessBody": "**Votre compte a bien été créé** et vous avez été ajouté·e à la liste d’attente en avant-première. **Vous recevrez un e-mail** dès que votre accès à ORHA sera prêt.",
     "errors": {
@@ -194,5 +197,314 @@
       "unavailable": "Le service de connexion est temporairement indisponible.",
       "failed": "Une erreur est survenue. Réessayez."
     }
+  },
+  "legal": {
+    "nav": {
+      "legalNotice": "Mentions légales",
+      "terms": "CGU",
+      "sales": "CGV",
+      "privacy": "Confidentialité",
+      "cookies": "Cookies",
+      "odds": "Probabilités"
+    },
+    "common": {
+      "backHome": "Retour à l'accueil",
+      "updated": "Dernière mise à jour le 7 septembre 2026"
+    },
+    "legalNotice": {
+      "title": "Mentions légales",
+      "sections": [
+        {
+          "heading": "Éditeur du site",
+          "body": [
+            "Le site ORHA est édité par **Lenny Gomes**, exerçant en tant qu'auto-entrepreneur.",
+            "SIRET : 93883298700011 — SIREN : 938832987",
+            "Adresse du siège : communiquée sur demande à l'adresse de contact ci-dessous.",
+            "TVA non applicable, article 293 B du Code général des impôts (franchise en base de TVA).",
+            "Contact : gleam-pro@proton.me",
+            "Directeur de la publication : Lenny Gomes."
+          ]
+        },
+        {
+          "heading": "Hébergement",
+          "body": [
+            "Le site est hébergé par **Vercel Inc.**, 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — vercel.com",
+            "La base de données est opérée par **Neon**, via l'intégration proposée par Vercel."
+          ]
+        },
+        {
+          "heading": "Propriété intellectuelle",
+          "body": [
+            "Le nom « ORHA », le logo, l'identité visuelle, les textes et l'ensemble des visuels d'Archives sont la propriété exclusive de l'éditeur ou de ses concédants, protégés par le droit de la propriété intellectuelle français et international. Toute reproduction sans autorisation écrite préalable est interdite."
+          ]
+        },
+        {
+          "heading": "Responsabilité",
+          "body": [
+            "ORHA est actuellement en phase de pré-lancement : les contenus et fonctionnalités décrits sur ce site sont susceptibles d'évoluer avant l'ouverture de l'application. L'éditeur ne saurait être tenu responsable d'une indisponibilité temporaire du site ni des dommages indirects liés à son utilisation."
+          ]
+        },
+        {
+          "heading": "Droit applicable",
+          "body": [
+            "Les présentes mentions légales sont soumises au droit français. Tout litige relève de la compétence des tribunaux français compétents."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Conditions Générales d'Utilisation",
+      "intro": "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site ORHA et, une fois disponible, de l'application mobile ORHA (ensemble, le « Service »), édités par Lenny Gomes (voir nos Mentions légales). En créant un compte ou en utilisant le Service, vous acceptez pleinement les présentes CGU.",
+      "sections": [
+        {
+          "heading": "1. Le Service",
+          "body": [
+            "ORHA vous permet de constituer une collection numérique d'« Archives » découvertes via une transmission quotidienne et aléatoire. Durant la phase actuelle de pré-lancement, le Service comprend une liste d'attente, un système de compte, et la possibilité d'acheter des packs de transmissions avant l'ouverture de l'application."
+          ]
+        },
+        {
+          "heading": "2. Éligibilité et compte",
+          "body": [
+            "Vous devez être âgé d'au moins 16 ans, ou disposer du consentement d'un parent ou représentant légal, pour créer un compte.",
+            "Vous êtes responsable de la confidentialité de vos identifiants et de toute activité réalisée depuis votre compte. Signalez-nous immédiatement toute utilisation non autorisée à gleam-pro@proton.me.",
+            "Un compte par personne. Les comptes sont personnels et ne peuvent être ni vendus, ni cédés, ni partagés."
+          ]
+        },
+        {
+          "heading": "3. Utilisation autorisée",
+          "body": [
+            "En utilisant le Service, vous vous engagez à ne pas :"
+          ],
+          "list": [
+            "Tenter d'accéder à l'infrastructure du Service, de l'altérer ou de la perturber (scraping, bots, rétro-ingénierie, tests de sécurité non autorisés) ;",
+            "Utiliser le Service à des fins illicites ou portant atteinte aux droits d'autrui ;",
+            "Créer plusieurs comptes pour contourner les limites du Service (par exemple la transmission gratuite quotidienne), ou revendre des crédits de transmission ou des Archives en dehors de toute fonctionnalité officiellement prévue à cet effet ;",
+            "Usurper l'identité d'un tiers."
+          ],
+          "footer": [
+            "Nous pouvons suspendre ou résilier tout compte qui enfreindrait cet article, sans préjudice de tout autre recours."
+          ]
+        },
+        {
+          "heading": "4. Propriété intellectuelle",
+          "body": [
+            "L'ensemble de la propriété intellectuelle relative au Service est protégé comme décrit dans nos Mentions légales."
+          ]
+        },
+        {
+          "heading": "5. Disponibilité et modifications",
+          "body": [
+            "Le Service est fourni dans le cadre d'une phase évolutive de pré-lancement. Nous pouvons modifier, suspendre ou interrompre certaines fonctionnalités, y compris la liste d'attente ou l'achat de packs, à tout moment, en nous efforçant de vous informer des changements substantiels."
+          ]
+        },
+        {
+          "heading": "6. Responsabilité",
+          "body": [
+            "Le Service est fourni « en l'état ». Dans la limite permise par la loi, la responsabilité de l'éditeur est limitée aux dommages directs et prévisibles, à l'exclusion de tout dommage indirect."
+          ]
+        },
+        {
+          "heading": "7. Droit applicable et litiges",
+          "body": [
+            "Les présentes CGU sont soumises au droit français. Les consommateurs résidant dans l'Union européenne bénéficient des dispositions impératives de leur droit local. À défaut de résolution amiable, tout litige relève de la compétence des tribunaux français compétents."
+          ]
+        },
+        {
+          "heading": "8. Modification des CGU",
+          "body": [
+            "Nous pouvons faire évoluer les présentes CGU à mesure que le Service se rapproche de son lancement. Les changements substantiels seront notifiés via le site ou par email.",
+            "Contact : gleam-pro@proton.me"
+          ]
+        }
+      ]
+    },
+    "sales": {
+      "title": "Conditions Générales de Vente",
+      "intro": "Les présentes Conditions Générales de Vente (CGV) s'appliquent à tout achat de packs de transmissions effectué sur le site ORHA, en complément de nos CGU. Merci de les lire avant de passer commande.",
+      "sections": [
+        {
+          "heading": "1. Produits",
+          "body": [
+            "ORHA propose actuellement des packs de transmissions (First Signal, Extended Signal, Deep Signal), crédités sur votre compte sous forme de transmissions quotidiennes supplémentaires, en plus de votre transmission gratuite quotidienne. La composition et le prix de chaque pack sont affichés sur la page d'achat avant validation de la commande."
+          ]
+        },
+        {
+          "heading": "2. Nature des crédits de transmission",
+          "body": [
+            "Les crédits de transmission sont une fonctionnalité numérique du Service, utilisée pour déclencher des découvertes supplémentaires. **Ils ne constituent pas une monnaie, n'ont aucune valeur monétaire en dehors d'ORHA, ne peuvent être échangés contre des espèces, ni transférés entre comptes.** L'achat de crédits n'augmente ni ne garantit la rareté des Archives obtenues — voir notre page Probabilités de tirage."
+          ]
+        },
+        {
+          "heading": "3. Processus de commande",
+          "body": [
+            "Un compte est requis pour passer commande. La commande s'effectue en sélectionnant un pack puis en réglant le paiement via notre prestataire de paiement, Stripe. La commande est confirmée dès l'encaissement du paiement, et les crédits sont ajoutés automatiquement à votre compte."
+          ]
+        },
+        {
+          "heading": "4. Prix et paiement",
+          "body": [
+            "Les prix sont affichés en euros. En tant qu'auto-entrepreneur bénéficiant de la franchise en base de TVA (article 293 B du Code général des impôts), les prix ne sont pas soumis à la TVA. Le paiement est traité de manière sécurisée par Stripe ; ORHA ne reçoit ni ne conserve vos données bancaires."
+          ]
+        },
+        {
+          "heading": "5. Droit de rétractation",
+          "body": [
+            "Conformément à la directive européenne relative aux droits des consommateurs et à l'article L221-28 du Code de la consommation, le droit de rétractation ne s'applique pas au contenu numérique non fourni sur support matériel dont l'exécution a commencé après votre accord préalable exprès et votre renoncement exprès à ce droit. **En validant votre achat, vous demandez expressément la fourniture immédiate de vos crédits de transmission et reconnaissez renoncer à votre droit de rétractation en conséquence.**"
+          ]
+        },
+        {
+          "heading": "6. Réclamations et support",
+          "body": [
+            "Pour toute question relative à une commande, contactez gleam-pro@proton.me. Nous nous efforçons de répondre dans un délai raisonnable."
+          ]
+        },
+        {
+          "heading": "7. Droit applicable",
+          "body": [
+            "Les présentes CGV sont soumises au droit français, sans préjudice des dispositions impératives applicables aux consommateurs résidant dans l'Union européenne."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "intro": "Cette politique explique quelles données personnelles ORHA collecte, pourquoi, et comment vous pouvez exercer vos droits, conformément au RGPD.",
+      "sections": [
+        {
+          "heading": "1. Responsable du traitement",
+          "body": [
+            "Le responsable du traitement est **Lenny Gomes**, auto-entrepreneur, contact : gleam-pro@proton.me."
+          ]
+        },
+        {
+          "heading": "2. Données collectées",
+          "body": [],
+          "list": [
+            "Données de compte : adresse email, nom d'utilisateur, mot de passe haché (ou identifiant de compte Google si vous vous connectez via Google) ;",
+            "Données de liste d'attente : adresse email, date d'inscription ;",
+            "Données d'achat : historique et montant des commandes, traités par Stripe — ORHA ne reçoit ni ne conserve vos données bancaires ;",
+            "Données techniques : adresse IP, type de navigateur et données de journalisation similaires collectées par notre hébergeur, Vercel, à des fins de sécurité et de fiabilité ;",
+            "Données de préférence : langue choisie, conservée dans un cookie."
+          ]
+        },
+        {
+          "heading": "3. Pourquoi nous utilisons vos données",
+          "body": [],
+          "list": [
+            "Créer et gérer votre compte et votre inscription à la liste d'attente ;",
+            "Traiter vos achats et créditer votre compte ;",
+            "Vous envoyer des emails liés au Service (confirmation, accès anticipé) ;",
+            "Sécuriser le Service et prévenir la fraude ou les abus ;",
+            "Respecter nos obligations légales et comptables."
+          ]
+        },
+        {
+          "heading": "4. Base légale",
+          "body": [
+            "Les traitements reposent sur l'exécution de notre contrat avec vous (compte, achats), notre intérêt légitime (sécurité, amélioration du Service) et, le cas échéant, votre consentement (communications marketing, s'il y en a)."
+          ]
+        },
+        {
+          "heading": "5. Destinataires de vos données",
+          "body": [
+            "Vos données peuvent être partagées avec des prestataires, strictement pour les finalités ci-dessus : **Vercel** (hébergement), **Neon** (base de données), **Stripe** (paiement). Nous ne vendons pas vos données."
+          ]
+        },
+        {
+          "heading": "6. Transferts internationaux",
+          "body": [
+            "Certains de ces prestataires peuvent traiter des données en dehors de l'Union européenne (notamment aux États-Unis). Le cas échéant, nous nous appuyons sur les garanties qu'ils proposent (telles que les clauses contractuelles types) pour assurer un niveau de protection adéquat."
+          ]
+        },
+        {
+          "heading": "7. Durée de conservation",
+          "body": [
+            "Les données de compte sont conservées tant que votre compte est actif, puis pendant une durée raisonnable pour répondre à nos obligations légales. Les données d'achat et de facturation sont conservées **10 ans**, conformément aux obligations comptables françaises. Les données de liste d'attente sont conservées jusqu'à l'ouverture d'ORHA ou jusqu'à votre demande de suppression."
+          ]
+        },
+        {
+          "heading": "8. Vos droits",
+          "body": [
+            "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité de vos données, ainsi que d'un droit d'opposition à certains traitements. Vous pouvez exercer ces droits en écrivant à gleam-pro@proton.me. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (cnil.fr) ou de votre autorité de protection des données locale."
+          ]
+        },
+        {
+          "heading": "9. Sécurité",
+          "body": [
+            "Nous mettons en œuvre des mesures techniques et organisationnelles raisonnables (hachage des mots de passe, accès restreint, prestataires sécurisés) pour protéger vos données."
+          ]
+        },
+        {
+          "heading": "10. Mineurs",
+          "body": [
+            "Le Service ne s'adresse pas aux enfants de moins de 16 ans. Nous ne collectons pas sciemment de données concernant des enfants en dessous de cet âge."
+          ]
+        },
+        {
+          "heading": "11. Modifications de cette politique",
+          "body": [
+            "Nous pouvons mettre à jour cette politique à mesure que le Service évolue. Les changements substantiels seront notifiés via le site."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Politique de cookies",
+      "intro": "Cette page présente les cookies et technologies similaires utilisés sur le site ORHA.",
+      "sections": [
+        {
+          "heading": "Ce que nous utilisons",
+          "body": [
+            "ORHA utilise actuellement uniquement des technologies **strictement nécessaires** : un cookie pour mémoriser votre préférence de langue, et le stockage local de votre navigateur pour vous garder connecté. Aucune d'entre elles ne nécessite votre consentement au regard de la réglementation ePrivacy, et nous n'utilisons aucun cookie publicitaire ou analytique à ce jour."
+          ]
+        },
+        {
+          "heading": "Gérer les cookies",
+          "body": [
+            "Vous pouvez supprimer ou bloquer les cookies à tout moment depuis les paramètres de votre navigateur. Cela peut affecter la mémorisation de la langue, mais ne vous empêchera pas d'utiliser le Service."
+          ]
+        },
+        {
+          "heading": "Évolutions futures",
+          "body": [
+            "Si nous introduisons à l'avenir des cookies analytiques ou publicitaires, nous mettrons à jour cette page et solliciterons votre consentement préalable lorsque cela sera requis."
+          ]
+        }
+      ]
+    },
+    "odds": {
+      "title": "Probabilités de tirage",
+      "intro": "Acheter des packs de transmissions vous donne des découvertes quotidiennes supplémentaires — cela ne change pas la façon dont ces découvertes sont déterminées. Cette page explique le fonctionnement.",
+      "sections": [
+        {
+          "heading": "Comment fonctionne une découverte",
+          "body": [
+            "Chaque transmission utilisée — gratuite ou achetée — déclenche la découverte d'une Archive. Le **niveau de rareté** de l'Archive (Common, Prime, Anomaly, Singularity) est déterminé **aléatoirement** au moment de la découverte, indépendamment de votre historique d'achat."
+          ]
+        },
+        {
+          "heading": "Aucune probabilité garantie",
+          "body": [
+            "**Les probabilités de tirage ne sont ni fixes ni garanties.** L'achat de packs de transmissions supplémentaires augmente le nombre de découvertes que vous pouvez effectuer — il n'augmente, ne garantit ni n'influence en rien la rareté obtenue lors d'une découverte donnée. Nous ne publions pas de taux de drop fixes à ce jour ; si cela venait à changer, cette page serait mise à jour en conséquence."
+          ]
+        },
+        {
+          "heading": "Absence de jeu d'argent",
+          "body": [
+            "Les Archives n'ont aucune valeur monétaire, ne peuvent être échangées contre des espèces, ni revendues en dehors d'ORHA. Aucune mise ne pouvant donner lieu à un gain monétaire, cette fonctionnalité ne constitue pas un jeu d'argent et de hasard au sens du droit français."
+          ]
+        }
+      ]
+    }
+  },
+  "footer": {
+    "tagline": "Le futur laisse des traces.",
+    "exploreHeading": "Explorer",
+    "legalHeading": "Légal",
+    "contactHeading": "Contact",
+    "rarities": "Niveaux de rareté",
+    "collection": "Collection",
+    "packs": "Packs de transmissions",
+    "copyright": "© {year} ORHA. Tous droits réservés."
   }
 }

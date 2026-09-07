@@ -41,14 +41,8 @@ export default function UserMenu() {
         type="button"
       >
         {user.pseudo}
-        <span
-          aria-label={dict.auth.transmissionCreditsAria.replace("{count}", String(user.transmissionCredits))}
-          className="flex items-center gap-1.5 border-l border-[#86a98d]/30 pl-3 text-[#86a98d]"
-        >
-          <svg aria-hidden="true" className="size-3 shrink-0 fill-none stroke-current stroke-[1.5]" viewBox="0 0 16 16">
-            <path className="[stroke-linecap:round] [stroke-linejoin:round]" d="M8 1.5v3M8 11.5v3M1.5 8h3M11.5 8h3M3.6 3.6l2.1 2.1M10.3 10.3l2.1 2.1M12.4 3.6l-2.1 2.1M5.7 10.3l-2.1 2.1" />
-          </svg>
-          {user.transmissionCredits}
+        <span className="border-l border-[#86a98d]/30 pl-3 text-[#86a98d]">
+          {dict.auth.transmissionCreditsLabel.replace("{count}", String(user.transmissionCredits))}
         </span>
         <svg aria-hidden="true" className={`size-3.5 shrink-0 fill-none stroke-current stroke-[1.5] transition-transform duration-200 ${open ? "rotate-180" : ""}`} viewBox="0 0 12 12">
           <path className="[stroke-linecap:round] [stroke-linejoin:round]" d="M2.5 4.5 6 8l3.5-3.5" />

@@ -24,6 +24,12 @@ export function localeHref(locale: Locale) {
   return locale === defaultLocale ? "/" : `/${locale}`;
 }
 
+/** Prefixes an app-relative path with the locale, e.g. `/legal-notice` or `/fr/legal-notice`. */
+export function localePath(locale: Locale, path: string) {
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  return locale === defaultLocale ? clean : `/${locale}${clean}`;
+}
+
 /**
  * Picks the best supported locale out of an `Accept-Language` header,
  * honouring quality values and falling back to the default locale.
