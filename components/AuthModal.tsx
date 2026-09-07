@@ -238,17 +238,6 @@ export default function AuthModal({ open, onClose, onAuthenticated }: Props) {
             </div>
 
             <form className="mt-6 flex flex-col gap-5" key={mode} onSubmit={handleSubmit} ref={formRef}>
-              {mode === "register" && (
-                <div>
-                  <p className="m-0 mb-3 flex items-center justify-between gap-3 font-[family-name:var(--font-geist-mono)] text-[10px] tracking-widest text-[#b8d2bd]" aria-live="polite">
-                    <span>{[dict.auth.emailLabel, dict.auth.pseudoLabel, dict.auth.passwordLabel][step]}</span>
-                    <span>{step + 1} / 3</span>
-                  </p>
-                  <div className="flex gap-2" aria-hidden="true">
-                    {[0, 1, 2].map((index) => <span key={index} className={`h-px flex-1 transition-colors motion-reduce:transition-none ${index <= step ? "bg-[#86a98d]" : "bg-white/15"}`} />)}
-                  </div>
-                </div>
-              )}
               {(mode === "login" || step === 0) && (
               <label className="flex flex-col gap-2">
                 <span className="font-[family-name:var(--font-geist-mono)] text-[10px] tracking-widest text-[#aaa9a4]">{dict.auth.emailLabel}</span>

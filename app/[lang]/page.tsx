@@ -168,13 +168,28 @@ export default function Home() {
               <span className="font-[family-name:var(--font-geist-mono)] text-[10px] leading-4 tracking-wider"><span className="block text-[9px] text-white/25">{dict.stores.soonOn}</span>{dict.stores.googlePlay}</span>
             </button>
           </div>
+          <button className="flex h-9 w-9 shrink-0 cursor-not-allowed items-center justify-center border border-white/10 bg-white/[.025] text-white/35 grayscale md:hidden" type="button" disabled title={dict.stores.discordTitle}>
+            <svg className="size-4 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.32 5.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.86-.61 1.24a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.24.08.08 0 0 0-.08-.04c-1.7.29-3.34.8-4.89 1.52a.07.07 0 0 0-.03.03C1.58 9.05.86 12.62 1.21 16.14a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 5.99 3.03.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.89.08.08 0 0 1 0-.13c.13-.09.25-.19.37-.28a.07.07 0 0 1 .08 0c3.93 1.79 8.18 1.79 12.06 0a.07.07 0 0 1 .08.01c.12.1.24.19.37.28a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.89a.08.08 0 0 0-.04.11c.36.7.78 1.37 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6-3.03.08.08 0 0 0 .03-.06c.42-4.07-.7-7.6-2.96-10.74a.06.06 0 0 0-.03-.03ZM8.68 14a1.18 1.18 0 0 1 0-2.37c.66 0 1.19.55 1.18 1.19 0 .65-.52 1.18-1.18 1.18Zm6.65 0a1.18 1.18 0 0 1 0-2.37c.66 0 1.19.55 1.18 1.19 0 .65-.51 1.18-1.18 1.18Z" />
+            </svg>
+          </button>
+          <button className="flex h-9 w-9 shrink-0 cursor-not-allowed items-center justify-center border border-white/10 bg-white/[.025] text-white/35 grayscale md:hidden" type="button" disabled title={dict.stores.appStoreTitle}>
+            <svg className="size-4 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.05 12.54c-.03-3.08 2.52-4.58 2.64-4.65a5.68 5.68 0 0 0-4.48-2.42c-1.88-.2-3.7 1.13-4.66 1.13-.98 0-2.46-1.11-4.05-1.08a5.93 5.93 0 0 0-4.99 3.05c-2.16 3.74-.55 9.23 1.52 12.25 1.04 1.48 2.25 3.13 3.84 3.07 1.56-.06 2.14-.99 4.02-.99 1.86 0 2.41.99 4.03.95 1.67-.02 2.72-1.48 3.72-2.98a12.2 12.2 0 0 0 1.7-3.47 5.34 5.34 0 0 1-3.29-4.86ZM13.98 3.48A5.4 5.4 0 0 0 15.21 0a5.5 5.5 0 0 0-3.56 1.65 5.16 5.16 0 0 0-1.27 3.34 4.55 4.55 0 0 0 3.6-1.51Z" />
+            </svg>
+          </button>
+          <button className="flex h-9 w-9 shrink-0 cursor-not-allowed items-center justify-center border border-white/10 bg-white/[.025] text-white/35 grayscale md:hidden" type="button" disabled title={dict.stores.googlePlayTitle}>
+            <svg className="size-4 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3.6 2.25a1.7 1.7 0 0 0-.35 1.04v17.42c0 .4.13.76.35 1.04l9.55-9.75L3.6 2.25Zm10.7 8.58 2.7-2.76L5.66 1.58a2.04 2.04 0 0 0-.96-.27l9.6 9.52Zm0 2.34-9.6 9.52c.33 0 .66-.09.96-.27L17 15.93l-2.7-2.76Zm4.08 1.97 2.45-1.4c1.23-.7 1.23-1.84 0-2.54l-2.45-1.4L15.46 12l2.92 3.14Z" />
+            </svg>
+          </button>
           <LanguageSwitcher />
         </div>
       </header>
 
       <section className="relative flex min-h-svh items-start px-6 pt-28 pb-28 md:items-center md:px-24 lg:px-36" id="top">
         <div className="z-10 w-full sm:relative md:w-2/3">
-          <h1 className="m-0 max-w-3xl text-5xl leading-[0.8] text-[#f4f3ef] sm:text-6xl md:text-7xl xl:text-9xl" aria-label={dict.hero.titleAria}>
+          <h1 className="m-0 max-w-3xl text-6xl leading-[0.8] text-[#f4f3ef] sm:text-6xl md:text-7xl xl:text-9xl" aria-label={dict.hero.titleAria}>
             <span className={`hero-title-reveal hero-title-reveal-first block font-[family-name:var(--font-alumni-sans)] font-black ${lang === "en" ? "-ml-[0.06em]" : ""}`}>{dict.hero.titleLine1}</span>
             <span className="hero-title-reveal hero-title-reveal-second -mt-[0.18em] block whitespace-nowrap">
               <span className="font-[family-name:var(--font-alumni-sans)] font-black">{dict.hero.titleLine2}</span>
@@ -193,8 +208,12 @@ export default function Home() {
                   <svg aria-hidden="true" className="size-3.5 fill-none stroke-current stroke-[1.5] transition-transform group-hover:translate-y-0.5" viewBox="0 0 12 12"><path className="[stroke-linecap:round] [stroke-linejoin:round]" d="M6 2v7M3.5 6.5 6 9l2.5-2.5" /></svg>
                 </a>
                 <p className="m-0 flex max-w-lg flex-col gap-2.5 text-sm leading-5 text-[#aaa9a4]" role="status">
-                  <span className="font-[family-name:var(--font-geist-mono)] text-xs tracking-widest text-[#86a98d]">{dict.waitlist.confirmedLabel}</span>
-                  {dict.auth.connectedAs.replace("{pseudo}", user.pseudo)}
+                  <span className="hidden font-[family-name:var(--font-geist-mono)] text-xs tracking-widest text-[#86a98d] sm:inline-block">{dict.waitlist.confirmedLabel}</span>
+                  <span className="sm:hidden">
+                    {dict.auth.connectedAs.replace("{pseudo}", user.pseudo)}{" "}
+                    <span className="text-[#86a98d]">{dict.auth.transmissionCreditsLabel.replace("{count}", String(user.transmissionCredits))}</span>
+                  </span>
+                  <span className="hidden sm:inline">{dict.auth.connectedAs.replace("{pseudo}", user.pseudo)}</span>
                 </p>
               </div>
             ) : (
@@ -295,7 +314,7 @@ export default function Home() {
       </section>
 
       <section
-        className="relative z-0 overflow-hidden bg-[#08090a] bg-[url('/backeden.png')] bg-cover bg-center bg-fixed max-[768px]:bg-scroll"
+        className="relative z-0 overflow-hidden bg-[#08090a] bg-[url('/backeden2.png')] bg-cover bg-center bg-fixed"
         id="eden"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-[#86a98d]/35 to-transparent" aria-hidden="true" />
@@ -324,7 +343,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative bg-[#08090a] px-6 py-24 md:px-24 md:py-32 lg:px-36 lg:py-40" id="raretes">
+      <section className="relative bg-[#08090a] px-6 pt-24 pb-12 md:px-24 md:py-32 lg:px-36 lg:py-40" id="raretes">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#86a98d]/35 to-transparent" aria-hidden="true" />
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 md:grid-cols-12 md:items-end">
@@ -546,10 +565,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative mt-12 flex w-full items-end justify-end border-t border-white/10 pt-4 md:absolute md:inset-x-24 md:bottom-6 md:mt-0 md:w-auto md:justify-between lg:inset-x-36" aria-hidden="true">
-          <span className={`${telemetryClass} hidden text-white/30 sm:inline`}>{dict.finalCta.signature}</span>
-          <span className="font-[family-name:var(--font-alumni-sans)] text-2xl font-semibold tracking-widest text-white/50">ORHA<span className="text-[#86a98d]">:</span></span>
-        </div>
+
       </section>
 
       <FloatingWaitlistButton />
