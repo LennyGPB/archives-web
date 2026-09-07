@@ -143,12 +143,18 @@ export default function Home() {
         <div className="flex min-w-0 items-center gap-3 sm:gap-5">
           <a className="inline-flex shrink-0 items-center gap-2.5 text-base font-semibold tracking-widest text-[#f4f3ef] no-underline" href="#top" aria-label={dict.nav.homeAria}>
             <Image alt="" className="h-14 w-auto shrink-0" height={3840} priority src="/logo_orha.png" width={2160} />
-            <span>ORHA<span className="text-[#86a98d]">:</span></span>
+            <span>ORHA</span>
           </a>
           {isAuthenticated && <UserMenu />}
         </div>
         <div className="flex items-center gap-2.5">
           <div className="hidden items-center gap-2.5 md:flex">
+            <button className="flex h-14 cursor-not-allowed items-center gap-3 border border-white/10 bg-white/[.025] px-5 text-left text-white/35 grayscale" type="button" disabled title={dict.stores.discordTitle}>
+              <svg className="size-6 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.32 5.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.86-.61 1.24a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.24.08.08 0 0 0-.08-.04c-1.7.29-3.34.8-4.89 1.52a.07.07 0 0 0-.03.03C1.58 9.05.86 12.62 1.21 16.14a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 5.99 3.03.08.08 0 0 0 .08-.03c.46-.63.87-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.89.08.08 0 0 1 0-.13c.13-.09.25-.19.37-.28a.07.07 0 0 1 .08 0c3.93 1.79 8.18 1.79 12.06 0a.07.07 0 0 1 .08.01c.12.1.24.19.37.28a.08.08 0 0 1 0 .13c-.6.35-1.22.65-1.87.89a.08.08 0 0 0-.04.11c.36.7.78 1.37 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6-3.03.08.08 0 0 0 .03-.06c.42-4.07-.7-7.6-2.96-10.74a.06.06 0 0 0-.03-.03ZM8.68 14a1.18 1.18 0 0 1 0-2.37c.66 0 1.19.55 1.18 1.19 0 .65-.52 1.18-1.18 1.18Zm6.65 0a1.18 1.18 0 0 1 0-2.37c.66 0 1.19.55 1.18 1.19 0 .65-.51 1.18-1.18 1.18Z" />
+              </svg>
+              <span className="font-[family-name:var(--font-geist-mono)] text-[10px] leading-4 tracking-wider"><span className="block text-[9px] text-white/25">{dict.stores.soonOn}</span>{dict.stores.discord}</span>
+            </button>
             <button className="flex h-14 cursor-not-allowed items-center gap-3 border border-white/10 bg-white/[.025] px-5 text-left text-white/35 grayscale" type="button" disabled title={dict.stores.appStoreTitle}>
               <svg className="size-6 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M17.05 12.54c-.03-3.08 2.52-4.58 2.64-4.65a5.68 5.68 0 0 0-4.48-2.42c-1.88-.2-3.7 1.13-4.66 1.13-.98 0-2.46-1.11-4.05-1.08a5.93 5.93 0 0 0-4.99 3.05c-2.16 3.74-.55 9.23 1.52 12.25 1.04 1.48 2.25 3.13 3.84 3.07 1.56-.06 2.14-.99 4.02-.99 1.86 0 2.41.99 4.03.95 1.67-.02 2.72-1.48 3.72-2.98a12.2 12.2 0 0 0 1.7-3.47 5.34 5.34 0 0 1-3.29-4.86ZM13.98 3.48A5.4 5.4 0 0 0 15.21 0a5.5 5.5 0 0 0-3.56 1.65 5.16 5.16 0 0 0-1.27 3.34 4.55 4.55 0 0 0 3.6-1.51Z" />

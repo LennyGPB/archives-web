@@ -105,22 +105,40 @@ export function loginWithGoogle(idToken: string) {
   return postAuth("/api/auth/google", { idToken }, "google");
 }
 
-/** Best-effort refresh: returns `null` instead of throwing so callers can fall back to signing out. */
-export async function refreshTokens(refreshToken: string): Promise<AuthTokens | null> {
-  try {
-    const response = await fetch("/api/auth/refresh", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ refreshToken }),
-    });
-    if (!response.ok) return null;
+let pendingRefresh: { refreshToken: string; promise: Promise<AuthTokens | null> } | null = null;
 
-    const data = (await response.json()) as Partial<AuthTokens>;
-    if (!data.accessToken || !data.refreshToken) return null;
-    return { accessToken: data.accessToken, refreshToken: data.refreshToken };
-  } catch {
-    return null;
-  }
+/**
+ * Best-effort refresh: returns `null` instead of throwing so callers can fall back to signing out.
+ *
+ * Refresh tokens are single-use (rotated server-side on every call), so two concurrent calls for
+ * the same token — e.g. React StrictMode double-invoking the bootstrap effect — would race: the
+ * first rotates the token, the second gets rejected as already-revoked and forces a sign-out.
+ * Callers racing on the same token instead share one in-flight request.
+ */
+export async function refreshTokens(refreshToken: string): Promise<AuthTokens | null> {
+  if (pendingRefresh?.refreshToken === refreshToken) return pendingRefresh.promise;
+
+  const promise = (async () => {
+    try {
+      const response = await fetch("/api/auth/refresh", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ refreshToken }),
+      });
+      if (!response.ok) return null;
+
+      const data = (await response.json()) as Partial<AuthTokens>;
+      if (!data.accessToken || !data.refreshToken) return null;
+      return { accessToken: data.accessToken, refreshToken: data.refreshToken };
+    } catch {
+      return null;
+    } finally {
+      pendingRefresh = null;
+    }
+  })();
+
+  pendingRefresh = { refreshToken, promise };
+  return promise;
 }
 
 export async function fetchCurrentUser(accessToken: string): Promise<AuthUser | null> {

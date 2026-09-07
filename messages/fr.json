@@ -18,7 +18,9 @@
     "appStore": "APP STORE",
     "googlePlay": "GOOGLE PLAY",
     "appStoreTitle": "Application bientôt disponible sur l’App Store",
-    "googlePlayTitle": "Application bientôt disponible sur Google Play"
+    "googlePlayTitle": "Application bientôt disponible sur Google Play",
+    "discord": "DISCORD",
+    "discordTitle": "Serveur Discord bientôt disponible"
   },
   "hero": {
     "titleAria": "Le futur laisse des traces",
@@ -353,13 +355,20 @@
           ]
         },
         {
-          "heading": "6. Réclamations et support",
+          "heading": "6. Absence de remboursement",
+          "body": [
+            "**En dehors du délai de rétractation légal décrit ci-dessus, tout achat de packs de transmissions est définitif et non remboursable.** Cela s'applique notamment si l'application ORHA est retardée, ne sort jamais, ou est interrompue : les crédits de transmission achetés restent sur votre compte et seront utilisables dès l'ouverture de l'application, mais ne donnent droit à aucun remboursement en espèces en dehors du délai de rétractation.",
+            "Cette politique ne porte pas atteinte aux droits impératifs dont vous pourriez bénéficier au titre du droit de la consommation applicable, qui ne peuvent être exclus par contrat."
+          ]
+        },
+        {
+          "heading": "7. Réclamations et support",
           "body": [
             "Pour toute question relative à une commande, contactez gleam-pro@proton.me. Nous nous efforçons de répondre dans un délai raisonnable."
           ]
         },
         {
-          "heading": "7. Droit applicable",
+          "heading": "8. Droit applicable",
           "body": [
             "Les présentes CGV sont soumises au droit français, sans préjudice des dispositions impératives applicables aux consommateurs résidant dans l'Union européenne."
           ]

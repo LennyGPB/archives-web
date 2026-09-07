@@ -18,7 +18,9 @@
     "appStore": "APP STORE",
     "googlePlay": "GOOGLE PLAY",
     "appStoreTitle": "App coming soon on the App Store",
-    "googlePlayTitle": "App coming soon on Google Play"
+    "googlePlayTitle": "App coming soon on Google Play",
+    "discord": "DISCORD",
+    "discordTitle": "Discord server coming soon"
   },
   "hero": {
     "titleAria": "The future leaves traces",
@@ -353,13 +355,20 @@
           ]
         },
         {
-          "heading": "6. Complaints & support",
+          "heading": "6. No refunds",
+          "body": [
+            "**Outside of the legal right of withdrawal described above, all purchases of transmission packs are final and non-refundable.** This applies in particular if the ORHA app is delayed, does not launch, or is discontinued: purchased transmission credits remain on your account and will be usable once the app opens, but are not eligible for a cash refund in any circumstance other than the withdrawal period.",
+            "This policy does not affect any mandatory right you may hold under applicable consumer protection law that cannot be excluded by contract."
+          ]
+        },
+        {
+          "heading": "7. Complaints & support",
           "body": [
             "For any question about an order, contact gleam-pro@proton.me. We aim to respond within a reasonable timeframe."
           ]
         },
         {
-          "heading": "7. Applicable law",
+          "heading": "8. Applicable law",
           "body": [
             "These Terms of Sale are governed by French law, without prejudice to any mandatory protections applicable to consumers residing in the European Union."
           ]
