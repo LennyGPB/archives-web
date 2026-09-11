@@ -7,6 +7,7 @@ export type AuthUser = {
   id: string;
   pseudo: string;
   avatarUrl: string | null;
+  role: "USER" | "ADMIN";
   transmissionCredits: number;
 };
 

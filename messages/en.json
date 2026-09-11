@@ -5,6 +5,7 @@
   },
   "nav": {
     "homeAria": "ORHA — home",
+    "menuAria": "Menu",
     "buyPacks": "Buy packs",
     "buyPacksAria": "View transmission packs",
     "comingSoon": "COMING SOON",
@@ -109,6 +110,7 @@
     "headingPrefix": "Reserve your",
     "headingWord": "transmissions.",
     "body": "Every collector receives one free transmission per day. **Reserve additional transmissions now at the pre-launch** price, available in your account as soon as ORHA opens.",
+    "prelaunchNotice": "**Pre-launch pricing: cheaper than after the app goes live.** Rates will go up once ORHA is available in stores. Buy now and your extra transmissions will be **automatically credited to your account** the moment it opens, nothing to redo, nothing to claim.",
     "transmissions": "transmissions",
     "buy": "BUY",
     "processing": "REDIRECTING…",

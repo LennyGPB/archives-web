@@ -41,7 +41,7 @@ export async function proxyPost(path: string, request: Request) {
 }
 
 /** Forwards the caller's bearer token to an authenticated API endpoint. */
-export async function proxyAuthed(path: string, request: Request, method: "GET" | "POST" = "GET") {
+export async function proxyAuthed(path: string, request: Request, method: "GET" | "POST" | "DELETE" = "GET") {
   const authorization = request.headers.get("authorization");
   if (!authorization) {
     return Response.json({ code: "unauthorized" }, { status: 401 });
